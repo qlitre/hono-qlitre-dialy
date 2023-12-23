@@ -1,0 +1,34 @@
+.Header__root {
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(8px);
+}
+
+.Header__header {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--spacing-4);
+    padding-bottom: var(--spacing-4);
+}
+
+.Header__siteTitle {
+    font-size: var(--size-5);
+}
+
+.Header__navigations {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+}
+
+.Header__navigationLink {
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

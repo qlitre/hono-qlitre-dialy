@@ -1,0 +1,14 @@
+.Footer__footer {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.Footer__wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.Footer__text {
+    color: var(-c-gray-500);
+    font-size: var(--font-size-sm);
+}

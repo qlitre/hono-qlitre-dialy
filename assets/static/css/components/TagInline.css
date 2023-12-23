@@ -1,0 +1,7 @@
+.TagInline__tags {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: var(--spacing-2);
+    margin-top: var(--spacing-8);
+}

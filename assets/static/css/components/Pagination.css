@@ -1,0 +1,47 @@
+.Pagination__wrapper {
+    padding: var(--spacing-4) 0;
+}
+
+.Pagination__pager {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-10) 0;
+    font-size: var(--font-size-xl);
+    font-weight: 500;
+}
+
+.Pagination__omission {
+    color: var(--c-gray-400);
+    margin: var(--spacing-1) var(--spacing-3);
+}
+
+.Pagination__page {
+    list-style: none;
+    width: var(--size-10);
+    height: var(--size-10);
+    margin: var(--spacing-1);
+
+    .Pagination__active {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        color: var(--c-gray-600);
+        border: 1px solid var(--c-teal-400);
+        color: var(--c-teal-400);
+    }
+
+    .Pagination__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        color: var(--c-gray-600);
+
+        &:hover {
+            color: var(--c-gray-400);
+        }
+    }
+}

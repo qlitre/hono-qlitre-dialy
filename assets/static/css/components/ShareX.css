@@ -1,0 +1,27 @@
+.ShareX__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-2);
+    font-size: var(--font-size-sm);
+    border-radius: var(--radius-md);
+    color: white;
+    background-color: var(--c-black-alpha-900);
+    padding-left: var(--spacing-4);
+    padding-right: var(--spacing-4);
+    height: var(--size-10);
+    transition: background-color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-2);
+}
+
+.ShareX__btn:hover {
+    background-color: var(--c-black-alpha-700);
+}
+
+.ShareX__img {
+    width: 20px;
+    height: 20px;
+}

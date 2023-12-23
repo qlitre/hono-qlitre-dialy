@@ -1,0 +1,4 @@
+.LineDevider__divider {
+    border-top: 1px dotted var(--c-gray-500);
+    margin: var(--spacing-8) 0;
+}

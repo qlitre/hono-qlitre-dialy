@@ -1,0 +1,299 @@
+@import 'base.css';
+@import 'root.css';
+/*components style*/
+@import 'components/Header.css';
+@import 'components/Footer.css';
+@import 'components/Article.css';
+@import 'components/ArticleDetail.css';
+@import 'components/TagInline.css';
+@import 'components/TagLabel.css';
+@import 'components/CategoryLabel.css';
+@import 'components/Breadcrumbs.css';
+@import 'components/Pagination.css';
+@import 'components/LineDevider.css';
+@import 'components/ShareX.css';
+@import 'components/AmazonLink.css';
+
+
+.container {
+    margin-top: var(--spacing-8);
+    margin-bottom: var(--spacing-8);
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--spacing-4);
+    padding-right: var(--spacing-4);
+}
+
+
+/* md style */
+.md a {
+    color: var(--c-text-link);
+
+    &:visited {
+        color: var(--c-text-link-visited);
+    }
+}
+
+.md .root {
+    word-break: break-all;
+
+    &> :first-child {
+        margin-top: 0;
+    }
+}
+
+.md a {
+    color: var(--c-text-link);
+
+    &:visited {
+        color: var(--c-text-link-visited);
+    }
+}
+
+.md h1 {
+    margin-top: var(--spacing-24);
+    margin-bottom: var(--spacing-8);
+    font-size: var(--font-size-2xl);
+    font-weight: bold;
+
+    &::before {
+        content: "# ";
+        color: var(--c-teal-500);
+    }
+}
+
+.md h2 {
+    margin-top: var(--spacing-16);
+    margin-bottom: var(--spacing-6);
+    font-size: var(--font-size-xl);
+    font-weight: bold;
+
+    &::before {
+        content: "## ";
+        color: var(--c-teal-500);
+    }
+}
+
+.md h3 {
+    margin-top: var(--spacing-12);
+    margin-bottom: var(--spacing-4);
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+
+    &::before {
+        content: "### ";
+        color: var(--c-teal-500);
+    }
+}
+
+.md pre {
+    margin-top: var(--spacing-8);
+    margin-bottom: var(--spacing-8);
+    font-size: var(--font-size-md);
+    background-color: #1d1f21;
+    padding: var(--spacing-4);
+    overflow-x: scroll;
+}
+
+.md p code,
+li code {
+    padding-left: var(--spacing-1);
+    padding-right: var(--spacing-1);
+    border-radius: var(--radius-sm);
+    margin: 0 var(--spacing-1);
+    background-color: var(--c-gray-100);
+    color: var(--c-gray-800);
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+    display: inline-block;
+
+}
+
+.md ul,
+.md ol {
+    padding-left: var(--spacing-7);
+    margin-top: var(--spacing-4);
+    margin-bottom: var(--spacing-4);
+}
+
+.md li {
+    line-height: 1.8;
+    margin-top: var(--spacing-2);
+    margin-bottom: var(--spacing-2);
+}
+
+.md li>p+p {
+    margin-top: var(--spacing-2);
+}
+
+.md .iframeContainer {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+    margin: var(--spacing-8) 0;
+}
+
+.md .iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.md .embeded {
+    margin-top: var(--spacing-8);
+    margin-bottom: var(--spacing-8);
+}
+
+.md p {
+    line-height: 1.8;
+    white-space: pre-wrap;
+    font-size: var(--font-size-md);
+
+    +p {
+        margin-top: var(--spacing-2);
+    }
+}
+
+.md img {
+    display: block;
+    max-width: 100%;
+    margin: var(--spacing-8) auto;
+    height: auto;
+    border: solid 1px var(--c-gray-300);
+}
+
+.md blockquote {
+    margin: var(--spacing-6) 0;
+    padding-left: var(--spacing-4);
+    padding-top: var(--spacing-1);
+    padding-bottom: var(--spacing-1);
+    border-left: var(--border-1);
+    border-color: var(--c-gray-500);
+    color: var(--c-gray-500);
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+.md hr {
+    height: auto;
+    border: none;
+
+    &::before {
+        content: "＊＊＊";
+        display: block;
+        color: var(--c-text-secondary);
+        margin-top: var(--spacing-6);
+        margin-bottom: var(--spacing-6);
+        text-align: center;
+    }
+}
+
+
+.md .twitterEmbed {
+    margin-top: var(--spacing-8);
+    margin-bottom: var(--spacing-8);
+}
+
+
+/* 
+hljs style 
+※ import して使う方法が分からなかったので、コピペで対応。
+https://github.com/highlightjs/highlight.js/blob/main/src/styles/hybrid.css
+*/
+
+.hljs {
+    background: #1d1f21;
+    color: #c5c8c6;
+}
+
+/*selection color*/
+.hljs::selection,
+.hljs span::selection {
+    background: #373b41;
+}
+
+.hljs::-moz-selection,
+.hljs span::-moz-selection {
+    background: #373b41;
+}
+
+/*color: fg_yellow*/
+.hljs-title,
+.hljs-name {
+    color: #f0c674;
+}
+
+/*color: fg_comment*/
+.hljs-comment,
+.hljs-meta,
+.hljs-meta .hljs-keyword {
+    color: #707880;
+}
+
+/*color: fg_red*/
+.hljs-number,
+.hljs-symbol,
+.hljs-literal,
+.hljs-deletion,
+.hljs-link {
+    color: #cc6666
+}
+
+/*color: fg_green*/
+.hljs-string,
+.hljs-doctag,
+.hljs-addition,
+.hljs-regexp,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+    color: #b5bd68;
+}
+
+/*color: fg_purple*/
+.hljs-attribute,
+.hljs-code,
+.hljs-selector-id {
+    color: #b294bb;
+}
+
+/*color: fg_blue*/
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-bullet,
+.hljs-tag {
+    color: #81a2be;
+}
+
+/*color: fg_aqua*/
+.hljs-subst,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+    color: #8abeb7;
+}
+
+/*color: fg_orange*/
+.hljs-type,
+.hljs-built_in,
+.hljs-quote,
+.hljs-section,
+.hljs-selector-class {
+    color: #de935f;
+}
+
+.hljs-emphasis {
+    font-style: italic;
+}
+
+.hljs-strong {
+    font-weight: bold;
+}

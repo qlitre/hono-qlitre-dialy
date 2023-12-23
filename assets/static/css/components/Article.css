@@ -1,0 +1,44 @@
+.Article__publishedAt {
+    margin-top: var(--spacing-2);
+    color: var(--c-text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.Article__description {
+    line-height: 1.6;
+    margin-top: var(--spacing-2);
+    color: var(--c-text-secondary);
+    font-size: var(--font-size-md);
+}
+
+.Article__titleLink {
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.Article__title {
+    line-height: 1.6;
+    font-family: var(--font-family-heading);
+    font-weight: bold;
+    font-size: var(--font-size-xl);
+}
+
+
+.Article__linkButton {
+    margin-top: var(--spacing-8);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-1) var(--spacing-2);
+    transition: background-color 0.2s;
+    color: var(--c-teal-500);
+    background-color: var(--c-white);
+    border: var(--border-1);
+    border-radius: var(--radius-sm);
+
+    &:hover {
+        background-color: var(--c-teal-100);
+    }
+}

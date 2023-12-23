@@ -1,0 +1,13 @@
+.Breadcrumbs__container {
+    margin-bottom: var(--spacing-8);
+}
+
+.Breadcrumbs__home {
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+}
+
+.Breadcrumbs__separator{
+    font-size: var(--font-size-lg);
+    margin: 0 var(--spacing-4);
+}
