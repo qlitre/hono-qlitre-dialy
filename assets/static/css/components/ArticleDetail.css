@@ -14,7 +14,7 @@
 
 .ArticleDetail__publishedAt {
     margin-top: var(--spacing-4);
-    color: var(--c-text-secondary);
+    color: var(--c-gray-700);
     font-size: var(--font-size-sm);
 }
 

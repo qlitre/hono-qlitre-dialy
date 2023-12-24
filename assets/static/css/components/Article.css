@@ -1,13 +1,13 @@
 .Article__publishedAt {
     margin-top: var(--spacing-2);
-    color: var(--c-text-secondary);
+    color: var(--c-gray-700);
     font-size: var(--font-size-sm);
 }
 
 .Article__description {
     line-height: 1.6;
     margin-top: var(--spacing-2);
-    color: var(--c-text-secondary);
+    color: var(--c-gray-700);
     font-size: var(--font-size-md);
 }
 

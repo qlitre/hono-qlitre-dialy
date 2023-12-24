@@ -25,8 +25,17 @@ type PaginationMaterial = {
 }
 
 export const Layout = (props: SiteData) => html`<!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3MQ79TZ7JM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-3MQ79TZ7JM');
+  </script>
   <meta charset="utf-8" />
   <title>${props.title}</title>
   <link rel="stylesheet" href="/static/css/style.css" />
@@ -45,6 +54,9 @@ export const Layout = (props: SiteData) => html`<!DOCTYPE html>
   <meta property="article:author" content="${config.twitterURL}">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:creator" content="@${config.twitterID}">
+  <!-- Google Ad -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7543031846020039"
+    crossorigin="anonymous"></script>
   </head>
   <body>
     ${<Header></Header>}

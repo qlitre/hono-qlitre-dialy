@@ -18,6 +18,7 @@ const limit = BLOG_PER_PAGE
 app.use('/static/*', serveStatic({ root: './' }))
 app.use('/sitemap.xml', serveStatic({ path: './sitemap.xml' }))
 app.use('/favicon.ico', serveStatic({ path: './favicon.ico' }))
+app.use('/ads.txt', serveStatic({ path: './ads.txt' }))
 
 /**
  * トップページ
