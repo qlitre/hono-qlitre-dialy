@@ -45,7 +45,7 @@
 
 .md a {
     color: var(--c-text-link);
-
+    word-break: break-all;
     &:visited {
         color: var(--c-text-link-visited);
     }

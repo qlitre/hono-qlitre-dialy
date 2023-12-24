@@ -35,3 +35,8 @@
         color: var(--c-teal-400);
     }
 }
+
+.ArticleDetail___Share {
+    margin-top: var(--spacing-8);
+    margin-bottom: var(--spacing-8);
+}

@@ -18,7 +18,8 @@ export const ArticleDetail = ({ post }: Props) => {
             <TagInline category={post.category} tags={post.tag}></TagInline>
             <LineDevider />
             {post.useRepeatedBody ? <RepeatedBody repeatedBody={post.repeatedBody} /> : <MarkdownTemplate body={post.text} />}
-            <div>
+            <LineDevider />
+            <div class='ArticleDetail___Share'>
                 <ShareX slug={post.id} title={post.title} />
             </div>
             <div class="ArticleDetail__linkToHomeBlock">

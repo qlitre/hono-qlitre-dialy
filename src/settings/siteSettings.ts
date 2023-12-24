@@ -1,5 +1,5 @@
 // 1ページあたりの記事数
-export const BLOG_PER_PAGE = 5
+export const BLOG_PER_PAGE = 10
 
 export const config = {
     // Headerなどに表示
