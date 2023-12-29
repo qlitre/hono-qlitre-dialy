@@ -11,6 +11,7 @@ import { Pagination } from './components/Paginations';
 type SiteData = {
   title: string
   description: string
+  canonicalUrl: string
   children?: any
   ogpType: 'website' | 'article'
   ogpImage?: string
@@ -39,6 +40,7 @@ export const Layout = (props: SiteData) => html`<!DOCTYPE html>
   <meta charset="utf-8" />
   <title>${props.title}</title>
   <link rel="stylesheet" href="/static/css/style.css" />
+  <link rel="canonical" href="${props.canonicalUrl}" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="${props.description}" />
   <meta name="author" content="${config.author}" />

@@ -39,6 +39,7 @@ app.get('/', async (c) => {
         siteData: {
             title: config.siteTitle,
             description: config.siteDescription,
+            canonicalUrl: config.siteURL,
             ogpType: "website" as const,
             ogpUrl: config.siteURL,
         },
@@ -62,6 +63,7 @@ app.get('/post/:slug', async (c) => {
         siteData: {
             title: listDetail.title,
             description: listDetail.description,
+            canonicalUrl: config.siteURL + `/post/${slug}`,
             ogpType: "article" as const,
             ogpImage: listDetail.thumbnail?.url,
             ogpUrl: config.siteURL + `/post/${slug}`,
@@ -88,6 +90,7 @@ app.get('/post/:slug/draft', async (c) => {
         siteData: {
             title: listDetail.title,
             description: listDetail.description,
+            canonicalUrl: config.siteURL + `/post/${slug}`,
             ogpType: "article" as const,
             ogpImage: listDetail.thumbnail?.url,
             ogpUrl: config.siteURL + `/post/${slug}`,
@@ -120,6 +123,7 @@ app.get('/page/:pageId', async (c) => {
         siteData: {
             title: config.siteTitle,
             description: config.siteDescription,
+            canonicalUrl: config.siteURL,
             ogpType: "website" as const,
             ogpUrl: config.siteURL,
         },
@@ -162,6 +166,7 @@ app.get('/:categoryId/page/:pageId', async (c) => {
         siteData: {
             title: config.siteTitle,
             description: config.siteDescription,
+            canonicalUrl: config.siteURL,
             ogpType: "website" as const,
             ogpUrl: config.siteURL,
         },
@@ -202,6 +207,7 @@ app.get('/tags/:tagId/page/:pageId', async (c) => {
         },
         siteData: {
             title: config.siteTitle,
+            canonicalUrl: config.siteURL,
             description: config.siteDescription,
             ogpType: "website" as const,
             ogpUrl: config.siteURL,
