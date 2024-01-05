@@ -7,6 +7,7 @@ import { ArticleList } from './components/ArticleList'
 import { Breadcrumbs } from './components/Breadcrumbs'
 import { ArticleDetail } from './components/ArticleDetail'
 import { Pagination } from './components/Paginations';
+import { Style, css } from 'hono/css'
 
 type SiteData = {
   title: string
@@ -59,6 +60,7 @@ export const Layout = (props: SiteData) => html`<!DOCTYPE html>
   <!-- Google Ad -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7543031846020039"
     crossorigin="anonymous"></script>
+  ${<Style />}
   </head>
   <body>
     ${<Header></Header>}

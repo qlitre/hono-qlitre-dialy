@@ -8,7 +8,7 @@
     "cheerio": "^1.0.0-rc.12",
     "dayjs": "^1.11.10",
     "highlight.js": "^11.9.0",
-    "hono": "^3.11.9",
+    "hono": "^3.12.0",
     "microcms-js-sdk": "^2.7.0",
     "sass": "^1.69.4"
   },

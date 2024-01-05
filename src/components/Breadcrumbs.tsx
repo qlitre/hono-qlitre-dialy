@@ -1,3 +1,4 @@
+import { css } from 'hono/css';
 import type { Category, Tag } from '../types/blog';
 import { CategoryLabel } from '../components/CategoryLabel';
 import { TagLabel } from '../components/TagLabel';
@@ -9,18 +10,31 @@ type Props = {
 };
 
 export const Breadcrumbs = ({ category, tag }: Props) => {
+    const containerClass = css`
+        margin-bottom: var(--spacing-8);
+    `
+
+    const homeClass = css`
+        font-size: var(--font-size-lg);
+        font-weight: bold;
+    `
+
+    const separatorClass = css`
+        font-size: var(--font-size-lg);
+        margin: 0 var(--spacing-4);
+    `
     return (
-        <div class="Breadcrumbs__container">
-            <a class="Breadcrumbs__home" href='/'>Home</a>
+        <div class={containerClass}>
+            <a class={homeClass} href='/'>Home</a>
             {category && (
                 <>
-                    <span class="Breadcrumbs__separator">/</span>
+                    <span class={separatorClass}>/</span>
                     <CategoryLabel category={category} />
                 </>
             )}
             {tag && (
                 <>
-                    <span class="Breadcrumbs__separator">/</span>
+                    <span class={separatorClass}>/</span>
                     <TagLabel tag={tag} />
                 </>
             )}

@@ -1,19 +1,35 @@
-@import 'base.css';
 @import 'root.css';
-/*components style*/
-@import 'components/Header.css';
-@import 'components/Footer.css';
-@import 'components/Article.css';
-@import 'components/ArticleDetail.css';
-@import 'components/TagInline.css';
-@import 'components/TagLabel.css';
-@import 'components/CategoryLabel.css';
-@import 'components/Breadcrumbs.css';
-@import 'components/Pagination.css';
-@import 'components/LineDevider.css';
-@import 'components/ShareX.css';
-@import 'components/AmazonLink.css';
 
+
+/* 共通設定 */
+body {
+    line-height: 1.5;
+    font-family: "Noto Sans JP", sans-serif;
+    color: var(--c-text-primary);
+    background-color: var(--c-background);
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline-width: 3px;
+}
+
+*:focus-visible {
+    outline: 3px solid var(--c-primary-300);
+}
 
 .container {
     margin-top: var(--spacing-8);
@@ -46,6 +62,7 @@
 .md a {
     color: var(--c-text-link);
     word-break: break-all;
+
     &:visited {
         color: var(--c-text-link-visited);
     }
