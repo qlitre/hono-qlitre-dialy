@@ -7,7 +7,8 @@ import { ArticleList } from './components/ArticleList'
 import { Breadcrumbs } from './components/Breadcrumbs'
 import { ArticleDetail } from './components/ArticleDetail'
 import { Pagination } from './components/Paginations';
-import { Style, css } from 'hono/css'
+import { CategoryNavigation } from './components/CategoryNavigation'
+import { Style } from 'hono/css'
 
 type SiteData = {
   title: string
@@ -72,6 +73,7 @@ export const Layout = (props: SiteData) => html`<!DOCTYPE html>
 export const HomeContent = (props: {
   siteData: SiteData,
   posts: Post[],
+  categories: Category[],
   paginationMaterial: PaginationMaterial,
   category?: Category,
   tag?: Tag
@@ -79,6 +81,7 @@ export const HomeContent = (props: {
   <Layout {...props.siteData}>
     <div class="container">
       <Breadcrumbs category={props.category} tag={props.tag}></Breadcrumbs>
+      <CategoryNavigation categories={props.categories} activeCategoryId={props.category?.id}></CategoryNavigation>
       <ArticleList posts={props.posts}></ArticleList>
       <Pagination totalCount={props.paginationMaterial.totalCount}
         currentPage={props.paginationMaterial.currentPage}

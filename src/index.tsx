@@ -28,12 +28,13 @@ app.get('/', async (c) => {
         serviceDomain: c.env.SERVICE_DOMAIN,
         apiKey: c.env.API_KEY,
     })
-    const listData = await client.getList<Post>({ endpoint: 'post' })
-    const posts = listData.contents
+    const posts = await client.getList<Post>({ endpoint: 'post' })
+    const categories = await client.getList<Category>({ endpoint: 'category' })
     const props = {
-        posts: posts,
+        posts: posts.contents,
+        categories: categories.contents,
         paginationMaterial: {
-            totalCount: listData.totalCount,
+            totalCount: posts.totalCount,
             currentPage: 1,
         },
         siteData: {
@@ -112,12 +113,13 @@ app.get('/page/:pageId', async (c) => {
         offset: (Number(pageId) - 1) * limit,
         limit: limit
     }
-    const listData = await client.getList<Post>({ endpoint: 'post', queries: queries })
-    const posts = listData.contents
+    const posts = await client.getList<Post>({ endpoint: 'post', queries: queries })
+    const categories = await client.getList<Category>({ endpoint: 'category' })
     const props = {
-        posts: posts,
+        posts: posts.contents,
+        categories: categories.contents,
         paginationMaterial: {
-            totalCount: listData.totalCount,
+            totalCount: posts.totalCount,
             currentPage: Number(pageId),
         },
         siteData: {
@@ -147,18 +149,14 @@ app.get('/:categoryId/page/:pageId', async (c) => {
         offset: (Number(pageId) - 1) * limit,
         limit: limit
     }
-    const listData = await client.getList<Post>({ endpoint: 'post', queries: queries })
-    const posts = listData.contents
-
-    const categoryDetail = await client.getListDetail<Category>({
-        endpoint: "category",
-        contentId: categoryId,
-    });
-
+    const posts = await client.getList<Post>({ endpoint: 'post', queries: queries })
+    const categories = await client.getList<Category>({ endpoint: 'category' })
+    const categoryDetail = categories.contents.find(category => category.id === categoryId)
     const props = {
-        posts: posts,
+        posts: posts.contents,
+        categories: categories.contents,
         paginationMaterial: {
-            totalCount: listData.totalCount,
+            totalCount: posts.totalCount,
             currentPage: Number(pageId),
             categoryId: categoryId,
         },
@@ -189,8 +187,8 @@ app.get('/tags/:tagId/page/:pageId', async (c) => {
         offset: (Number(pageId) - 1) * limit,
         limit: limit
     }
-    const listData = await client.getList<Post>({ endpoint: 'post', queries: queries })
-    const posts = listData.contents
+    const posts = await client.getList<Post>({ endpoint: 'post', queries: queries })
+    const categories = await client.getList<Category>({ endpoint: 'category' })
 
     const tagDetail = await client.getListDetail<Tag>({
         endpoint: "tag",
@@ -198,10 +196,11 @@ app.get('/tags/:tagId/page/:pageId', async (c) => {
     });
 
     const props = {
-        posts: posts,
+        posts: posts.contents,
+        categories: categories.contents,
         tag: tagDetail,
         paginationMaterial: {
-            totalCount: listData.totalCount,
+            totalCount: posts.totalCount,
             currentPage: Number(pageId),
             tagId: tagId,
         },
