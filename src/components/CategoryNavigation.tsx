@@ -58,13 +58,13 @@ const NavigationLink = ({ href, children, categoryId, activeCategoryId }: ChildP
 
 
     const categoryLinkClass = css` 
-    font-weight: bold;
-    font-size: var(--font-size-md);
-    padding: var(--spacing-2) var(--spacing-4);
-    color: var(--c-black-alpha-500);
-    &:hover {
-        background-color: var(--c-black-alpha-100);
-    }
+        font-weight: bold;
+        font-size: var(--font-size-md);
+        padding: var(--spacing-2) var(--spacing-4);
+        color: var(--c-black-alpha-500);
+        &:hover {
+            background-color: var(--c-black-alpha-100);
+        }
     `
 
     if (isActive) {
