@@ -1,7 +1,8 @@
 {
   "scripts": {
     "dev": "wrangler dev src/index.tsx",
-    "deploy": "wrangler deploy --minify src/index.tsx"
+    "deploy": "wrangler deploy --minify src/index.tsx",
+    "sitemap": "python scripts/gen_sitemap.py"
   },
   "dependencies": {
     "@types/node": "^20.8.7",
