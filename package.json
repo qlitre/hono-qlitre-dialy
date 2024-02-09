@@ -9,12 +9,16 @@
     "cheerio": "^1.0.0-rc.12",
     "dayjs": "^1.11.10",
     "highlight.js": "^11.9.0",
-    "hono": "^3.12.8",
+    "hono": "^4.0.0",
     "microcms-js-sdk": "^2.7.0",
     "sass": "^1.69.4"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20230914.0",
-    "wrangler": "^3.9.0"
-  }
+    "@cloudflare/workers-types": "^4.20240208.0",
+    "wrangler": "^3.28.1"
+  },
+  "include": [
+    "src/**/*",
+    "src/types.d.ts"
+  ]
 }
