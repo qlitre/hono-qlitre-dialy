@@ -62,11 +62,14 @@ export const Layout = (props: SiteData) => html`<!DOCTYPE html>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7543031846020039"
     crossorigin="anonymous"></script>
   ${<Style />}
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/dracula.min.css">
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   </head>
   <body>
     ${<Header></Header>}
     ${props.children}
-    ${<Footer></Footer>}    
+    ${<Footer></Footer>}   
   </body>
 </html>`
 

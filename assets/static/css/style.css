@@ -108,7 +108,7 @@ textarea:focus {
     margin-top: var(--spacing-8);
     margin-bottom: var(--spacing-8);
     font-size: var(--font-size-md);
-    background-color: #1d1f21;
+    background-color: #282A36;
     padding: var(--spacing-4);
     overflow-x: scroll;
 }
