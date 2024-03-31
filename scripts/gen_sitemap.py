@@ -82,7 +82,7 @@ def job():
     loc = et.SubElement(url_element, 'loc')
     loc.text = HOST_URL
 
-    tree.write(Path(BASE_DIR,'assets','sitemap.xml'), encoding='utf-8', xml_declaration=True)
+    tree.write(Path(BASE_DIR,'public','sitemap.xml'), encoding='utf-8', xml_declaration=True)
     success_message = """
     ============
     Successfully create sitemap

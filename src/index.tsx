@@ -1,10 +1,10 @@
 import { Hono } from 'hono'
 import type { MicroCMSQueries } from 'microcms-js-sdk';
+import type { Post, Category, Tag } from './types/blog'
 import { serveStatic } from 'hono/cloudflare-pages'
 import { createClient } from 'microcms-js-sdk'
-import { Post, Category, Tag } from './types/blog'
 import { HomeContent, DetailContent } from './layout'
-import { BLOG_PER_PAGE } from './settings/siteSettings'; 
+import { BLOG_PER_PAGE } from './settings/siteSettings';
 import { config } from './settings/siteSettings'
 
 type Bindings = {
