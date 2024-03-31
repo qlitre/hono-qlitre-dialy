@@ -1,0 +1,17 @@
+import build from '@hono/vite-cloudflare-pages'
+import devServer from '@hono/vite-dev-server'
+import adapter from '@hono/vite-dev-server/cloudflare'
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  ssr:{
+    external:['microcms-js-sdk','dayjs']
+  },
+  plugins: [
+    build(),
+    devServer({
+      adapter,
+      entry: 'src/index.tsx'
+    })
+  ]
+})

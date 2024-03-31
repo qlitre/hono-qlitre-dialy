@@ -1,8 +1,10 @@
 {
+  "type": "module",
   "scripts": {
-    "dev": "wrangler dev src/index.tsx",
-    "deploy": "wrangler deploy --minify src/index.tsx",
-    "sitemap": "python scripts/gen_sitemap.py"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "wrangler pages dev dist",
+    "deploy": "yarn build && wrangler pages deploy dist"
   },
   "dependencies": {
     "dayjs": "^1.11.10",
@@ -11,10 +13,9 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240208.0",
-    "wrangler": "^3.28.1"
-  },
-  "include": [
-    "src/**/*",
-    "src/types.d.ts"
-  ]
+    "@hono/vite-cloudflare-pages": "^0.2.4",
+    "@hono/vite-dev-server": "^0.9.0",
+    "vite": "^5.0.12",
+    "wrangler": "^3.32.0"
+  }
 }
