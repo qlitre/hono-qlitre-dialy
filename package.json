@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "dayjs": "^1.11.10",
-    "hono": "^4.2.0",
+    "hono": "^4.2.3",
     "microcms-js-sdk": "^3.1.0"
   },
   "devDependencies": {
