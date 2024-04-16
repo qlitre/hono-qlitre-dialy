@@ -4,8 +4,8 @@ import adapter from '@hono/vite-dev-server/cloudflare'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  ssr:{
-    external:['microcms-js-sdk','dayjs']
+  ssr: {
+    external: ['microcms-js-sdk', 'dayjs']
   },
   plugins: [
     build(),
