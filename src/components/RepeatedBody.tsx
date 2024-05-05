@@ -7,7 +7,6 @@ type Props = {
 }
 
 export const RepeatedBody = ({ repeatedBody }: Props) => {
-    console.log(repeatedBody)
     return (
         <div>
             {repeatedBody.map((body, i) =>
