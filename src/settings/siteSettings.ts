@@ -17,4 +17,6 @@ export const config = {
     twitterURL: 'https://twitter.com/kuri_tter',
     // @はいれない
     twitterID: 'kuri_tter',
+    // 記事一覧取得用のフィールド
+    postListFields: 'id,title,publishedAt,description,tag,category'
 }

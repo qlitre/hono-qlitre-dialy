@@ -28,7 +28,11 @@ app.get('/', async (c) => {
         serviceDomain: c.env.SERVICE_DOMAIN,
         apiKey: c.env.API_KEY,
     })
-    const posts = await client.getList<Post>({ endpoint: 'post' })
+    const queries: MicroCMSQueries = {
+        limit: limit,
+        fields: config.postListFields
+    }
+    const posts = await client.getList<Post>({ endpoint: 'post', queries: queries })
     const categories = await client.getList<Category>({ endpoint: 'category' })
     const props = {
         posts: posts.contents,
@@ -111,7 +115,8 @@ app.get('/page/:pageId', async (c) => {
     })
     const queries: MicroCMSQueries = {
         offset: (Number(pageId) - 1) * limit,
-        limit: limit
+        limit: limit,
+        fields: config.postListFields
     }
     const posts = await client.getList<Post>({ endpoint: 'post', queries: queries })
     const categories = await client.getList<Category>({ endpoint: 'category' })
@@ -147,7 +152,8 @@ app.get('/:categoryId/page/:pageId', async (c) => {
     const queries: MicroCMSQueries = {
         filters: `category[equals]${categoryId}`,
         offset: (Number(pageId) - 1) * limit,
-        limit: limit
+        limit: limit,
+        fields: config.postListFields
     }
     const posts = await client.getList<Post>({ endpoint: 'post', queries: queries })
     const categories = await client.getList<Category>({ endpoint: 'category' })
@@ -185,7 +191,8 @@ app.get('/tags/:tagId/page/:pageId', async (c) => {
     const queries: MicroCMSQueries = {
         filters: `tag[contains]${tagId}`,
         offset: (Number(pageId) - 1) * limit,
-        limit: limit
+        limit: limit,
+        fields: config.postListFields
     }
     const posts = await client.getList<Post>({ endpoint: 'post', queries: queries })
     const categories = await client.getList<Category>({ endpoint: 'category' })
