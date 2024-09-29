@@ -1,4 +1,4 @@
-import type { MicroCMSListContent } from "microcms-js-sdk";
+import type { MicroCMSListContent, MicroCMSListResponse } from "microcms-js-sdk";
 import type { MicroCMSImage } from "microcms-js-sdk";
 
 export type Tag = {
@@ -33,3 +33,5 @@ export type Post = {
     useRepeatedBody: boolean;
     repeatedBody: Body[];
 } & MicroCMSListContent;
+
+export type PostListResponse = MicroCMSListResponse<Post>

@@ -58,7 +58,7 @@ export const Pagination = ({ totalCount, categoryId, tagId, currentPage = 1 }: P
     `
 
     const getPath = (p: number) => {
-        if (categoryId) return `/${categoryId}/page/${p}`
+        if (categoryId) return `/category/${categoryId}/page/${p}`
         if (tagId) return `/tags/${tagId}/page/${p}`;
         return `/page/${p}`;
     }
