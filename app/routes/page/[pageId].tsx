@@ -38,8 +38,7 @@ export default createRoute(async (c) => {
         ogpUrl: config.siteURL
     }
     return c.render(
-        <>
-            <HomeContent posts={posts.contents} categories={categories.contents} paginationMaterial={paginationMaterial} />
-        </>, { meta }
+        <HomeContent posts={posts.contents} categories={categories.contents} paginationMaterial={paginationMaterial} />,
+        { meta }
     )
 })

@@ -22,8 +22,6 @@ export default createRoute(async (c) => {
         ogpUrl: contentUrl
     }
     return c.render(
-        <>
-            <DetailContent post={post} />
-        </>, { meta }
+        <DetailContent post={post} />, { meta }
     )
 })

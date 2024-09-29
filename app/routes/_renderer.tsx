@@ -7,20 +7,18 @@ import { config } from '../settings/siteSettings'
 
 export default jsxRenderer(({ children, meta }) => {
   return (
-    <html lang="en">
+    <html lang="ja">
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{meta?.title}</title>
-        <link rel="stylesheet" href="/static/css/style.css" />
-        <link rel="canonical" href="${props.canonicalUrl}" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="${props.description}" />
-        <meta name="author" content="${config.author}" />
+        <link rel="canonical" href={meta?.canonicalUrl} />
+        <meta name="description" content={meta?.description} />
+        <meta name="author" content={config.author} />
         {/*<!-- OGP -->*/}
         <meta property="og:title" content={meta?.title} />
         <meta property="og:description" content={meta?.description} />
-        <meta property="og:url" content="${props.ogpUrl}" />
+        <meta property="og:url" content={meta?.ogpUrl} />
         <meta property="og:site_name" content={config.siteTitle} />
         <meta property="og:image" content={meta?.ogpImage} />
         <meta property="og:image:width" content="1200" />
