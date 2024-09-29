@@ -10,34 +10,6 @@ const limit = BLOG_PER_PAGE
 
 
 export default createRoute(async (c) => {
-    /**
-     *  const queries: MicroCMSQueries = {
-        filters: `category[equals]${categoryId}`,
-        offset: (Number(pageId) - 1) * limit,
-        limit: limit,
-        fields: config.postListFields
-    }
-    const posts = await client.getList<Post>({ endpoint: 'post', queries: queries })
-    const categories = await client.getList<Category>({ endpoint: 'category' })
-    const categoryDetail = categories.contents.find(category => category.id === categoryId)
-    const props = {
-        posts: posts.contents,
-        categories: categories.contents,
-        paginationMaterial: {
-            totalCount: posts.totalCount,
-            currentPage: Number(pageId),
-            categoryId: categoryId,
-        },
-        category: categoryDetail,
-        siteData: {
-            title: config.siteTitle,
-            description: config.siteDescription,
-            canonicalUrl: config.siteURL,
-            ogpType: "website" as const,
-            ogpUrl: config.siteURL,
-        },
-    }
-     */
     const categoryId = c.req.param('categoryId')
     const pageId = c.req.param('pageId')
     const offset = (Number(pageId) - 1) * limit
