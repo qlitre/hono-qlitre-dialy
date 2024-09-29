@@ -1,6 +1,6 @@
 import { Style } from 'hono/css'
 import { jsxRenderer } from 'hono/jsx-renderer'
-import { Script, Link } from 'honox/server'
+import { Script } from 'honox/server'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { config } from '../settings/siteSettings'
@@ -29,8 +29,7 @@ export default jsxRenderer(({ children, meta }) => {
         <meta name="twitter:creator" content={'@' + config.twitterID} />
         <link rel="icon" href="/favicon.ico" />
         <Script src="/app/client.ts" async />
-        <Link href="/static/css/root.css" rel="stylesheet" />
-        <Link href="/static/css/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/static/css/style.css" />
         <Style />
         {/*<!-- Google Ad -->*/}
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7543031846020039"
