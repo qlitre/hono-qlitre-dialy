@@ -21,7 +21,7 @@ export const CategoryLabel = ({ category }: Props) => {
         color: var(--c-teal-800);
     `
     return (
-        <a href={`/${category.id}/page/1`}>
+        <a href={`/category/${category.id}/page/1`}>
             <span class={categoryLabeLClass}>{category.name}</span>
         </a>)
 };

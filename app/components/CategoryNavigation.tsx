@@ -21,7 +21,7 @@ export const CategoryNavigation = ({ categories, activeCategoryId }: Props) => {
         <nav class={categoryNavigationClass}>
             {categories.map(category => (
                 <NavigationLink
-                    href={`/${category.id}/page/1`}
+                    href={`/category/${category.id}/page/1`}
                     categoryId={category.id}
                     activeCategoryId={activeCategoryId}
                 >
