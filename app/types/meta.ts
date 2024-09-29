@@ -4,5 +4,5 @@ export type Meta = {
     canonicalUrl?: string;
     ogpUrl?: string;
     ogpImage?: string;
-    ogpType?: string;
+    ogpType?: 'website' | 'article';
 };
