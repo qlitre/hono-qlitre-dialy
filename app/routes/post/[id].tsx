@@ -11,7 +11,6 @@ export default createRoute(async (c) => {
     const apiKey = c.env.API_KEY
     const client = new MicroCMSClient(serviceDomain, apiKey)
     const post = await client.getDetail<Post>('post', id)
-    if (!post) return
     const contentUrl = config.siteURL + `/post/${id}`
     const meta: Meta = {
         title: post.title,

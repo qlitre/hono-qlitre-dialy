@@ -32,7 +32,7 @@ class MicroCMSClient {
         this.apiKey = apiKey;
     }
 
-    private async fetchFromCMS<T>(url: string): Promise<T | undefined> {
+    private async fetchFromCMS<T>(url: string): Promise<T> {
         const options = {
             method: 'GET',
             headers: {
@@ -50,11 +50,11 @@ class MicroCMSClient {
             })
             .catch((error) => {
                 console.error('There has been a problem with your fetch operation:', error);
-                return undefined;
+                throw error
             });
     }
 
-    public async getListResponse<T>(endpoint: string, queries?: MicroCMSQueries): Promise<T | undefined> {
+    public async getListResponse<T>(endpoint: string, queries?: MicroCMSQueries): Promise<T> {
         const baseUrl = `https://${this.serviceDomain}.microcms.io/api/v1/`;
         let url = `${baseUrl}${endpoint}`;
         if (queries) {
@@ -65,7 +65,7 @@ class MicroCMSClient {
         return this.fetchFromCMS<T>(url);
     }
 
-    public async getDetail<T>(endpoint: string, contentId: string, queries?: MicroCMSQueries): Promise<T | undefined> {
+    public async getDetail<T>(endpoint: string, contentId: string, queries?: MicroCMSQueries): Promise<T> {
         const baseUrl = `https://${this.serviceDomain}.microcms.io/api/v1/`;
         let url = `${baseUrl}${endpoint}/${contentId}`;
         if (queries) {

@@ -21,9 +21,7 @@ export default createRoute(async (c) => {
         offset: offset
     }
     const posts = await client.getListResponse<MicroCMSListResponse<Post>>('post', queries)
-    if (!posts) return
     const categories = await client.getListResponse<MicroCMSListResponse<Category>>('category')
-    if (!categories) return
     const categoryDetail = categories.contents.find(category => category.id === categoryId)
 
     const totalCount = posts.totalCount

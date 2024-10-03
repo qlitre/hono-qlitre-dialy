@@ -11,8 +11,6 @@ export default createRoute(async (c) => {
     const client = new MicroCMSClient(serviceDomain, apiKey)
     const queries = { draftKey: draftKey }
     const post = await client.getDetail<Post>('post', id, queries)
-    if (!post) return
-
     return c.render(
         <DetailContent post={post} />
     )

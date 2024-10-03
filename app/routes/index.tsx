@@ -15,14 +15,11 @@ export default createRoute(async (c) => {
     fields: config.postListFields
   }
   const posts = await client.getListResponse<MicroCMSListResponse<Post>>('post', queries)
-  if (!posts) return
   const categories = await client.getListResponse<MicroCMSListResponse<Category>>('category')
-  if (!categories) return
   const totalCount = posts.totalCount
-  const currentPage = 1
   const paginationMaterial = {
     totalCount: totalCount,
-    currentPage: currentPage
+    currentPage: 1
   }
 
 
