@@ -73,11 +73,6 @@ textarea:focus {
     margin-bottom: var(--spacing-8);
     font-size: var(--font-size-2xl);
     font-weight: bold;
-
-    &::before {
-        content: "# ";
-        color: var(--c-teal-500);
-    }
 }
 
 .md h2 {
@@ -85,11 +80,6 @@ textarea:focus {
     margin-bottom: var(--spacing-6);
     font-size: var(--font-size-xl);
     font-weight: bold;
-
-    &::before {
-        content: "## ";
-        color: var(--c-teal-500);
-    }
 }
 
 .md h3 {
@@ -97,11 +87,6 @@ textarea:focus {
     margin-bottom: var(--spacing-4);
     font-size: var(--font-size-lg);
     font-weight: bold;
-
-    &::before {
-        content: "### ";
-        color: var(--c-teal-500);
-    }
 }
 
 .md pre {
