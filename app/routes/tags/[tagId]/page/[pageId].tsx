@@ -17,7 +17,8 @@ export default createRoute(async (c) => {
         filters: `tag[contains]${tagId}`,
         limit: limit,
         fields: config.postListFields,
-        offset: offset
+        offset: offset,
+        orders: '-publishedAt'
     }
     const posts = await client.getListResponse<MicroCMSListResponse<Post>>('post', queries)
     const categories = await client.getListResponse<MicroCMSListResponse<Category>>('category')

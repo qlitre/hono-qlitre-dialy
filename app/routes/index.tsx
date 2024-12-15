@@ -12,7 +12,8 @@ export default createRoute(async (c) => {
   const client = new MicroCMSClient(c.env.SERVICE_DOMAIN, c.env.API_KEY)
   const queries: MicroCMSQueries = {
     limit: limit,
-    fields: config.postListFields
+    fields: config.postListFields,
+    orders: '-publishedAt'
   }
   const posts = await client.getListResponse<MicroCMSListResponse<Post>>('post', queries)
   const categories = await client.getListResponse<MicroCMSListResponse<Category>>('category')
