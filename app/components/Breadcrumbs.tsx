@@ -7,9 +7,10 @@ import { TagLabel } from '../components/TagLabel';
 type Props = {
     category?: Category;
     tag?: Tag;
+    keyword?: string
 };
 
-export const Breadcrumbs = ({ category, tag }: Props) => {
+export const Breadcrumbs = ({ category, tag, keyword }: Props) => {
     const containerClass = css`
         margin-bottom: var(--spacing-8);
     `
@@ -23,6 +24,12 @@ export const Breadcrumbs = ({ category, tag }: Props) => {
         font-size: var(--font-size-lg);
         margin: 0 var(--spacing-4);
     `
+
+    const keywordClass = css`
+        font-size: var(--font-size-sm);
+        color:var(--c-gray-500);
+    `
+
     return (
         <div class={containerClass}>
             <a class={homeClass} href='/'>Home</a>
@@ -36,6 +43,12 @@ export const Breadcrumbs = ({ category, tag }: Props) => {
                 <>
                     <span class={separatorClass}>/</span>
                     <TagLabel tag={tag} />
+                </>
+            )}
+            {keyword && (
+                <>
+                    <span class={separatorClass}>/</span>
+                    <span class={keywordClass}>キーワード：{keyword}</span>
                 </>
             )}
         </div>
