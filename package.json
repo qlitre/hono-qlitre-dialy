@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "dayjs": "^1.11.10",
-    "hono": "^4.6.17",
-    "honox": "^0.1.32",
+    "hono": "^4.6.20",
+    "honox": "^0.1.33",
     "microcms-js-sdk": "^3.1.0"
   },
   "devDependencies": {
