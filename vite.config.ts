@@ -6,6 +6,6 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [honox({ devServer: { adapter } }), build()],
   ssr: {
-    external: ['microcms-js-sdk', 'dayjs']
+    external: ['microcms-js-sdk', 'dayjs', 'microcms-rich-editor-handler', 'shiki']
   },
 })
