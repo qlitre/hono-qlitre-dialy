@@ -4,8 +4,7 @@
     "dev": "vite",
     "build": "vite build --mode client && vite build",
     "preview": "wrangler pages dev",
-    "deploy": "npm run build && wrangler pages deploy",
-    "sitemap": "scripts/gen_sitemap.py"
+    "deploy": "yarn build && wrangler pages deploy"
   },
   "dependencies": {
     "dayjs": "^1.11.10",
