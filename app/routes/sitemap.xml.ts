@@ -11,29 +11,26 @@ export default createRoute(async (c) => {
   const limit = 50
   const tot = r.totalCount
   const cnt = Math.ceil(tot / limit)
-  const posts: Post[] = []
+  const urls: string[] = []
+  const baseUrl = config.siteURL
   for (let i = 0; i < cnt; i++) {
     const offset = i * limit
-    const postList = await client.getListResponse<MicroCMSListResponse<Post>>('post', { limit: limit, offset: offset })
+    const postList = await client.getListResponse<MicroCMSListResponse<Post>>('post', { limit: limit, offset: offset, fields: 'id,updatedAt' })
     for (const post of postList.contents) {
-      posts.push(post)
+      urls.push(`
+      <url>
+        <loc>${baseUrl}/post/${post.id}</loc>
+        <lastmod>${post.updatedAt.split("T")[0]}</lastmod>
+      </url>`)
     }
   }
 
-  const baseUrl = config.siteURL
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
       <loc>${baseUrl}/</loc>
     </url>
-    ${posts.map(
-    (article) => `
-    <url>
-      <loc>${baseUrl}/post/${article.id}</loc>
-      <lastmod>${article.updatedAt.split("T")[0]}</lastmod>
-    </url>`
-  )
-      .join("")}
+    ${urls.join("")}
   </urlset>`;
   return c.text(sitemap, 200, { "Content-Type": "application/xml" });
 })
