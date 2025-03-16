@@ -89,6 +89,9 @@ export const Header = () => {
                         <a class={navigationLinkClass} href={config.about} target="_blank" rel="noopener noreferrer">
                             About
                         </a>
+                        <a class={navigationLinkClass} href="/feed.atom" target="_blank" rel="noopener noreferrer">
+                            Feed
+                        </a>
                         <SearchForm />
                     </nav>
                 </header>

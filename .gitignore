@@ -11,3 +11,4 @@ pnpm-lock.yaml
 .env
 
 myvenv
+.DS_Store
