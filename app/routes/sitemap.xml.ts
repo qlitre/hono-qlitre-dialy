@@ -3,7 +3,7 @@ import { config } from '../settings/siteSettings'
 import type { MicroCMSListResponse } from 'microcms-js-sdk'
 import type { Post } from '../types/blog'
 import { MicroCMSClient } from '../libs/microcmsClient'
-
+import { jstDatetime } from '../utils/jstDatetime'
 
 export default createRoute(async (c) => {
   const client = new MicroCMSClient(c.env.SERVICE_DOMAIN, c.env.API_KEY)
@@ -17,10 +17,11 @@ export default createRoute(async (c) => {
     const offset = i * limit
     const postList = await client.getListResponse<MicroCMSListResponse<Post>>('post', { limit: limit, offset: offset, fields: 'id,updatedAt' })
     for (const post of postList.contents) {
+      const jst=jstDatetime(post.updatedAt).split("T")[0]
       urls.push(`
       <url>
         <loc>${baseUrl}/post/${post.id}</loc>
-        <lastmod>${post.updatedAt.split("T")[0]}</lastmod>
+        <lastmod>${jst}</lastmod>
       </url>`)
     }
   }
