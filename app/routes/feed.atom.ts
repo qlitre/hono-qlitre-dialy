@@ -10,7 +10,7 @@ export default createRoute(async (c) => {
   const limit = 50;
   const r = await client.getListResponse<MicroCMSListResponse<Post>>("post", {
     limit: limit,
-    fields: "id,title,updatedAt,createdAt",
+    fields: "id,title,updatedAt,createdAt,description",
   });
   const baseUrl = config.siteURL;
   const feedItems: string[] = [];
@@ -21,6 +21,7 @@ export default createRoute(async (c) => {
       <id>${baseUrl}/post/${post.id}</id>
       <updated>${jstDatetime(post.updatedAt)}</updated>
       <published>${jstDatetime(post.createdAt)}</published>
+      <summary>${post.description ? post.description.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") : ''}</summary>
     </entry>`);
   }
   const atomFeed = `<?xml version="1.0" encoding="UTF-8"?>
