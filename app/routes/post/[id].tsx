@@ -1,26 +1,21 @@
-import { createRoute } from 'honox/factory'
-import { MicroCMSClient } from '../../libs/microcmsClient'
-import type { Post } from '../../types/blog'
-import type { Meta } from '../../types/meta'
-import { config } from '../../settings/siteSettings'
-import { DetailContent } from '../../components/DetailContent'
+import { createRoute } from "honox/factory";
+import type { Meta } from "../../types/meta";
+import { config } from "../../settings/siteSettings";
+import { DetailContent } from "../../components/DetailContent";
+import { getMicroCMSClient, getPostDetail } from "../../libs/microcms";
 
 export default createRoute(async (c) => {
-    const { id } = c.req.param()
-    const serviceDomain = c.env.SERVICE_DOMAIN
-    const apiKey = c.env.API_KEY
-    const client = new MicroCMSClient(serviceDomain, apiKey)
-    const post = await client.getDetail<Post>('post', id)
-    const contentUrl = config.siteURL + `/post/${id}`
-    const meta: Meta = {
-        title: post.title,
-        description: post.description,
-        canonicalUrl: contentUrl,
-        ogpType: 'article' as const,
-        ogpImage: post.thumbnail?.url,
-        ogpUrl: contentUrl
-    }
-    return c.render(
-        <DetailContent post={post} />, { meta }
-    )
-})
+  const { id } = c.req.param();
+  const client = getMicroCMSClient(c.env.SERVICE_DOMAIN, c.env.API_KEY);
+  const post = await getPostDetail(client, id);
+  const contentUrl = config.siteURL + `/post/${id}`;
+  const meta: Meta = {
+    title: post.title,
+    description: post.description,
+    canonicalUrl: contentUrl,
+    ogpType: "article" as const,
+    ogpImage: post.thumbnail?.url,
+    ogpUrl: contentUrl,
+  };
+  return c.render(<DetailContent post={post} />, { meta });
+});
