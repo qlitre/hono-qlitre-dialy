@@ -1,0 +1,5 @@
+**/*.json
+**/*.md
+**/*.txt
+**/node_modules
+**/dist

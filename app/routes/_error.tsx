@@ -1,18 +1,18 @@
-import type { ErrorHandler } from 'hono'
-import { LinkToHome } from '../components/LinkToHome'
+import type { ErrorHandler } from "hono";
+import { LinkToHome } from "../components/LinkToHome";
 
 const handler: ErrorHandler = (e, c) => {
-  if ('getResponse' in e) {
-    return e.getResponse()
+  if ("getResponse" in e) {
+    return e.getResponse();
   }
-  console.error(e.message)
-  c.status(500)
+  console.error(e.message);
+  c.status(500);
   return c.render(
     <div class="container">
       <p>Internal Server Error</p>
       <LinkToHome />
-    </div>
-  )
-}
+    </div>,
+  );
+};
 
-export default handler
+export default handler;

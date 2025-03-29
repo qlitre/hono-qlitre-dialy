@@ -32,6 +32,6 @@ export default createRoute(async (c) => {
         <ArticleList posts={posts.contents}></ArticleList>
       </div>
     </>,
-    { meta }
+    { meta },
   );
 });

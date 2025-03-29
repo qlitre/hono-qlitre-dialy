@@ -49,6 +49,6 @@ export default createRoute(async (c) => {
       paginationMaterial={paginationMaterial}
       category={categoryDetail}
     />,
-    { meta }
+    { meta },
   );
 });

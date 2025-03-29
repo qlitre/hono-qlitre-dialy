@@ -10,7 +10,7 @@ export const getMicroCMSClient = (serviceDomain: string, apiKey: string) => {
 
 export const getPosts = async (
   client: ReturnType<typeof createClient>,
-  queries?: MicroCMSQueries
+  queries?: MicroCMSQueries,
 ) => {
   return await client.getList<Post>({
     endpoint: "post",
@@ -19,7 +19,7 @@ export const getPosts = async (
 };
 
 export const getCategories = async (
-  client: ReturnType<typeof createClient>
+  client: ReturnType<typeof createClient>,
 ) => {
   return await client.getList<Category>({
     endpoint: "category",
@@ -29,7 +29,7 @@ export const getCategories = async (
 export const getPostDetail = async (
   client: ReturnType<typeof createClient>,
   contentId: string,
-  queries?: MicroCMSQueries
+  queries?: MicroCMSQueries,
 ) => {
   return await client.getListDetail<Post>({
     endpoint: "post",
@@ -41,7 +41,7 @@ export const getPostDetail = async (
 export const getTagDetail = async (
   client: ReturnType<typeof createClient>,
   contentId: string,
-  queries?: MicroCMSQueries
+  queries?: MicroCMSQueries,
 ) => {
   return await client.getListDetail<Tag>({
     endpoint: "tag",
@@ -50,16 +50,14 @@ export const getTagDetail = async (
   });
 };
 
-
 export const getCategoryDetail = async (
-    client: ReturnType<typeof createClient>,
-    contentId: string,
-    queries?: MicroCMSQueries
-  ) => {
-    return await client.getListDetail<Category>({
-      endpoint: "category",
-      contentId: contentId,
-      queries: queries,
-    });
-  };
-  
+  client: ReturnType<typeof createClient>,
+  contentId: string,
+  queries?: MicroCMSQueries,
+) => {
+  return await client.getListDetail<Category>({
+    endpoint: "category",
+    contentId: contentId,
+    queries: queries,
+  });
+};

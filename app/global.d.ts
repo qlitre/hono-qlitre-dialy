@@ -1,21 +1,24 @@
-import { } from 'hono'
-import type { Meta } from './types/meta'
+import {} from "hono";
+import type { Meta } from "./types/meta";
 
 type Head = {
-  meta: Meta
-}
+  meta: Meta;
+};
 
 type Bindings = {
-  API_KEY: string
-  SERVICE_DOMAIN: string
-}
+  API_KEY: string;
+  SERVICE_DOMAIN: string;
+};
 
-declare module 'hono' {
+declare module "hono" {
   interface Env {
-    Variables: {}
-    Bindings: Bindings
+    Variables: {};
+    Bindings: Bindings;
   }
   interface ContextRenderer {
-    (content: string | Promise<string>, head?: Head): Response | Promise<Response>
+    (
+      content: string | Promise<string>,
+      head?: Head,
+    ): Response | Promise<Response>;
   }
 }
