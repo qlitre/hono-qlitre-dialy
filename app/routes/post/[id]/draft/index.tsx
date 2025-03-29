@@ -1,17 +1,13 @@
-import { createRoute } from 'honox/factory'
-import { MicroCMSClient } from '../../../../libs/microcmsClient'
-import type { Post } from '../../../../types/blog'
-import { DetailContent } from '../../../../components/DetailContent'
+import { createRoute } from "honox/factory";
+import { DetailContent } from "../../../../components/DetailContent";
+import { getMicroCMSClient, getPostDetail } from "../../../../libs/microcms";
 
 export default createRoute(async (c) => {
-    const { id } = c.req.param()
-    const draftKey = c.req.query('draftKey')
-    const serviceDomain = c.env.SERVICE_DOMAIN
-    const apiKey = c.env.API_KEY
-    const client = new MicroCMSClient(serviceDomain, apiKey)
-    const queries = { draftKey: draftKey }
-    const post = await client.getDetail<Post>('post', id, queries)
-    return c.render(
-        <DetailContent post={post} />
-    )
-})
+  const { id } = c.req.param();
+  const draftKey = c.req.query("draftKey");
+  const queries = { draftKey: draftKey };
+  const client = getMicroCMSClient(c.env.SERVICE_DOMAIN, c.env.API_KEY);
+  const post = await getPostDetail(client, id, queries);
+
+  return c.render(<DetailContent post={post} />);
+});

@@ -1,10 +1,9 @@
 import { createRoute } from 'honox/factory'
 import { BLOG_PER_PAGE, config } from '../../../../settings/siteSettings'
 import { HomeContent } from '../../../../components/HomeContent'
-import type { MicroCMSQueries, MicroCMSListResponse } from 'microcms-js-sdk'
-import type { Post, Category, Tag } from '../../../../types/blog'
+import type { MicroCMSQueries} from 'microcms-js-sdk'
 import type { Meta } from '../../../../types/meta'
-import { MicroCMSClient } from '../../../../libs/microcmsClient'
+import { getMicroCMSClient,getPosts, getCategories,getTagDetail } from "../../../../libs/microcms";
 
 const limit = BLOG_PER_PAGE
 
@@ -12,7 +11,7 @@ export default createRoute(async (c) => {
     const tagId = c.req.param('tagId')
     const pageId = c.req.param('pageId')
     const offset = (Number(pageId) - 1) * limit
-    const client = new MicroCMSClient(c.env.SERVICE_DOMAIN, c.env.API_KEY)
+    const client = getMicroCMSClient(c.env.SERVICE_DOMAIN, c.env.API_KEY)
     const queries: MicroCMSQueries = {
         filters: `tag[contains]${tagId}`,
         limit: limit,
@@ -20,9 +19,10 @@ export default createRoute(async (c) => {
         offset: offset,
         orders: '-publishedAt'
     }
-    const posts = await client.getListResponse<MicroCMSListResponse<Post>>('post', queries)
-    const categories = await client.getListResponse<MicroCMSListResponse<Category>>('category')
-    const tagDetail = await client.getDetail<Tag>('tag', tagId)
+
+    const posts = await getPosts(client, queries)
+    const categories = await getCategories(client)
+    const tagDetail = await getTagDetail(client,tagId)
     const totalCount = posts.totalCount
     const currentPage = Number(pageId)
     const paginationMaterial = {

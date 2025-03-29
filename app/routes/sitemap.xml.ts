@@ -1,31 +1,29 @@
-import { createRoute } from 'honox/factory'
-import { config } from '../settings/siteSettings'
-import type { MicroCMSListResponse } from 'microcms-js-sdk'
-import type { Post } from '../types/blog'
-import { MicroCMSClient } from '../libs/microcmsClient'
-import { jstDatetime } from '../utils/jstDatetime'
+import { createRoute } from "honox/factory";
+import { config } from "../settings/siteSettings";
+import type { Post } from "../types/blog";
+import { jstDatetime } from "../utils/jstDatetime";
+import { getMicroCMSClient, getPosts } from "../libs/microcms";
 
 export default createRoute(async (c) => {
-  const client = new MicroCMSClient(c.env.SERVICE_DOMAIN, c.env.API_KEY)
-  const r = await client.getListResponse<MicroCMSListResponse<Post>>('post', { limit: 0 })
-  const limit = 50
-  const tot = r.totalCount
-  const cnt = Math.ceil(tot / limit)
-  const urls: string[] = []
-  const baseUrl = config.siteURL
-  for (let i = 0; i < cnt; i++) {
-    const offset = i * limit
-    const postList = await client.getListResponse<MicroCMSListResponse<Post>>('post', { limit: limit, offset: offset, fields: 'id,updatedAt' })
-    for (const post of postList.contents) {
-      const jst=jstDatetime(post.updatedAt).split("T")[0]
-      urls.push(`
+  const client = getMicroCMSClient(c.env.SERVICE_DOMAIN, c.env.API_KEY);
+  const allPosts = await client.getAllContents<Post>({
+    endpoint: "post",
+    queries: { fields: "id,updatedAt" },
+  });
+  const r = await getPosts(client, { limit: 0 });
+  const limit = 50;
+  const tot = r.totalCount;
+  const cnt = Math.ceil(tot / limit);
+  const urls: string[] = [];
+  const baseUrl = config.siteURL;
+  for (const post of allPosts) {
+    const jst = jstDatetime(post.updatedAt).split("T")[0];
+    urls.push(`
       <url>
         <loc>${baseUrl}/post/${post.id}</loc>
         <lastmod>${jst}</lastmod>
-      </url>`)
-    }
+      </url>`);
   }
-
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
@@ -34,4 +32,4 @@ export default createRoute(async (c) => {
     ${urls.join("")}
   </urlset>`;
   return c.text(sitemap, 200, { "Content-Type": "application/xml" });
-})
+});

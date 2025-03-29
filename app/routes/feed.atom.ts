@@ -1,14 +1,12 @@
 import { createRoute } from "honox/factory";
 import { config } from "../settings/siteSettings";
-import type { MicroCMSListResponse } from "microcms-js-sdk";
-import type { Post } from "../types/blog";
-import { MicroCMSClient } from "../libs/microcmsClient";
 import { jstDatetime } from "../utils/jstDatetime";
+import { getMicroCMSClient, getPosts } from "../libs/microcms";
 
 export default createRoute(async (c) => {
-  const client = new MicroCMSClient(c.env.SERVICE_DOMAIN, c.env.API_KEY);
+  const client = getMicroCMSClient(c.env.SERVICE_DOMAIN, c.env.API_KEY);
   const limit = 50;
-  const r = await client.getListResponse<MicroCMSListResponse<Post>>("post", {
+  const r = await getPosts(client, {
     limit: limit,
     fields: "id,title,updatedAt,createdAt,description",
   });
@@ -21,7 +19,14 @@ export default createRoute(async (c) => {
       <id>${baseUrl}/post/${post.id}</id>
       <updated>${jstDatetime(post.updatedAt)}</updated>
       <published>${jstDatetime(post.createdAt)}</published>
-      <summary>${post.description ? post.description.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") : ''}</summary>
+      <summary>${
+        post.description
+          ? post.description
+              .replace(/&/g, "&amp;")
+              .replace(/</g, "&lt;")
+              .replace(/>/g, "&gt;")
+          : ""
+      }</summary>
     </entry>`);
   }
   const atomFeed = `<?xml version="1.0" encoding="UTF-8"?>
@@ -33,5 +38,5 @@ export default createRoute(async (c) => {
     <updated>${jstDatetime(new Date().toISOString())}</updated>
     ${feedItems.join("")}
   </feed>`;
-  return c.text(atomFeed,200,{"Content-Type":"atom+xml"})
-}); 
+  return c.text(atomFeed, 200, { "Content-Type": "atom+xml" });
+});
