@@ -41,17 +41,8 @@ textarea:focus {
 }
 
 /* md style */
-.md a {
-  color: var(--c-text-link);
-
-  &:visited {
-    color: var(--c-text-link-visited);
-  }
-}
-
 .md .root {
   word-break: break-all;
-
   & > :first-child {
     margin-top: 0;
   }
@@ -92,7 +83,7 @@ textarea:focus {
   margin-bottom: var(--spacing-8);
   font-size: var(--font-size-md);
   padding: var(--spacing-6);
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .md p code,
