@@ -8,8 +8,8 @@
   },
   "dependencies": {
     "dayjs": "^1.11.10",
-    "hono": "^4.7.5",
-    "honox": "^0.1.38",
+    "hono": "^4.7.7",
+    "honox": "^0.1.40",
     "microcms-js-sdk": "^3.2.0",
     "microcms-rich-editor-handler": "^1.0.1",
     "shiki": "^2.2.0"
