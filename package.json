@@ -3,12 +3,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build --mode client && vite build",
-    "preview": "wrangler pages dev",
-    "deploy": "yarn build && wrangler pages deploy"
+    "preview": "wrangler dev",
+    "format":"npx prettier --write .",
+    "deploy": "yarn build && wrangler deploy"
   },
   "dependencies": {
     "dayjs": "^1.11.10",
-    "hono": "^4.7.7",
+    "hono": "^4.7.8",
     "honox": "^0.1.40",
     "microcms-js-sdk": "^3.2.0",
     "microcms-rich-editor-handler": "^1.0.1",
