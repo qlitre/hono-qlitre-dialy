@@ -12,3 +12,4 @@ pnpm-lock.yaml
 
 myvenv
 .DS_Store
+wrangler.jsonc
