@@ -8,6 +8,11 @@ export default defineConfig({
     honox({ devServer: { adapter }, client: { input: ["./public/static/css/style.css"] } }),
     build(),
   ],
+  build: {
+    rollupOptions: {
+      external: ["cloudflare:workers"]
+    }
+  },
   ssr: {
     external: [
       "microcms-js-sdk",
@@ -16,6 +21,7 @@ export default defineConfig({
       "shiki",
       "@modelcontextprotocol/sdk",
       "@hono/mcp",
+      "cloudflare:workers",
     ],
   },
 });
