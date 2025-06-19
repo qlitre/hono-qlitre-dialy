@@ -12,8 +12,10 @@ export default defineConfig({
     external: [
       "microcms-js-sdk",
       "dayjs",
-      "microcms-rich-editor-handler",
+      "microcms-rich-editor-handler", 
       "shiki",
+      "@modelcontextprotocol/sdk",
+      "@hono/mcp",
     ],
   },
 });
