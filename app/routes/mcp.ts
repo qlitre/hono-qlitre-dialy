@@ -46,26 +46,26 @@ export const getMcpServer = async (c: Context<Env>) => {
           },
         ],
       };
-    }
+    },
   );
   server.tool(
-      "get_detail",
-      "Get Blog Detail",
-      {
-        id: z.string().min(1),
-      },
-      async ({ id }) => {
-        const result = await getPostDetail(client, id);
-        return {
-          content: [
-            {
-              type: "text",
-              text: JSON.stringify(result, null, 2),
-            },
-          ],
-        };
-      }
-    );
+    "get_detail",
+    "Get Blog Detail",
+    {
+      id: z.string().min(1),
+    },
+    async ({ id }) => {
+      const result = await getPostDetail(client, id);
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(result, null, 2),
+          },
+        ],
+      };
+    },
+  );
   return server;
 };
 
@@ -94,7 +94,7 @@ app.onError((err, c) => {
       },
       id: null,
     },
-    500
+    500,
   );
 });
 

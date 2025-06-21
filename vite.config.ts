@@ -5,19 +5,22 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [
-    honox({ devServer: { adapter }, client: { input: ["./public/static/css/style.css"] } }),
+    honox({
+      devServer: { adapter },
+      client: { input: ["./public/static/css/style.css"] },
+    }),
     build(),
   ],
   build: {
     rollupOptions: {
-      external: ["cloudflare:workers"]
-    }
+      external: ["cloudflare:workers"],
+    },
   },
   ssr: {
     external: [
       "microcms-js-sdk",
       "dayjs",
-      "microcms-rich-editor-handler", 
+      "microcms-rich-editor-handler",
       "shiki",
       "@modelcontextprotocol/sdk",
       "@hono/mcp",

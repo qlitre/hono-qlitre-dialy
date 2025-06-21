@@ -151,8 +151,8 @@ li code {
 }
 
 .md figure {
-  margin-inline: 0;          
-  margin-block: var(--spacing-8) 0;  
+  margin-inline: 0;
+  margin-block: var(--spacing-8) 0;
 }
 
 .md img {
