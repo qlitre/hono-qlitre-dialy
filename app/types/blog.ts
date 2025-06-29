@@ -33,6 +33,7 @@ export type Post = {
   description: string;
   category: Category;
   tag: Tag[];
+  keywords: string;
   text: string;
   useRepeatedBody: boolean;
   repeatedBody: Body[];

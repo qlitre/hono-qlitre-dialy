@@ -12,6 +12,7 @@ export default createRoute(async (c) => {
   const meta: Meta = {
     title: post.title,
     description: post.description,
+    keywords: post.keywords,
     canonicalUrl: contentUrl,
     ogpType: "article" as const,
     ogpImage: post.thumbnail?.url,

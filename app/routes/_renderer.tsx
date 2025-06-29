@@ -14,6 +14,7 @@ export default jsxRenderer(({ children, meta }) => {
         <title>{meta?.title}</title>
         <link rel="canonical" href={meta?.canonicalUrl} />
         <meta name="description" content={meta?.description} />
+        <meta name="keywords" content={meta?.keywords} />
         <meta name="author" content={config.author} />
         {/*<!-- OGP -->*/}
         <meta property="og:title" content={meta?.title} />
