@@ -1,8 +1,8 @@
 import { ArticleDetail } from "./ArticleDetail";
-import type { Post } from "../types/blog";
+import type { Post,RelatedPosts } from "../types/blog";
 
-export const DetailContent = (props: { post: Post }) => (
+export const DetailContent = (props: { post: Post,relatedPosts?:RelatedPosts }) => (
   <div class="container">
-    <ArticleDetail post={props.post}></ArticleDetail>
+    <ArticleDetail post={props.post} relatedPosts={props.relatedPosts}></ArticleDetail>
   </div>
 );

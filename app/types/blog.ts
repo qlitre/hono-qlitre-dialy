@@ -37,6 +37,14 @@ export type Post = {
   text: string;
   useRepeatedBody: boolean;
   repeatedBody: Body[];
+  relatedPostIds:string;
 } & MicroCMSListContent;
 
+export type RelatedPost={
+  id:string,
+  title:string,
+  description:string,
+  publishedAt:string
+}
+export type RelatedPosts=RelatedPost[]
 export type PostListResponse = MicroCMSListResponse<Post>;
