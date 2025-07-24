@@ -1,4 +1,5 @@
 import type {
+  MicroCMSDate,
   MicroCMSListContent,
   MicroCMSListResponse,
 } from "microcms-js-sdk";
@@ -44,7 +45,7 @@ export type RelatedPost={
   id:string,
   title:string,
   description:string,
-  publishedAt:string
+  publishedAt:MicroCMSDate['publishedAt']
 }
 export type RelatedPosts=RelatedPost[]
 export type PostListResponse = MicroCMSListResponse<Post>;
