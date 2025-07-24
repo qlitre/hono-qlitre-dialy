@@ -11,8 +11,8 @@
     "@hono/mcp": "^0.1.0",
     "@modelcontextprotocol/sdk": "^1.13.0",
     "dayjs": "^1.11.10",
-    "hono": "^4.8.3",
-    "honox": "^0.1.42",
+    "hono": "^4.8.5",
+    "honox": "^0.1.43",
     "microcms-js-sdk": "^3.2.0",
     "microcms-rich-editor-handler": "^1.0.1",
     "shiki": "^2.2.0"
