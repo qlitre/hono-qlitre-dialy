@@ -11,10 +11,10 @@ import { jstDatetime } from "../utils/jstDatetime";
 
 type Props = {
   post: Post;
-  relatedPosts?:RelatedPosts
+  relatedPosts?: RelatedPosts;
 };
 
-export const ArticleDetail = ({ post,relatedPosts }: Props) => {
+export const ArticleDetail = ({ post, relatedPosts }: Props) => {
   const containerClass = css`
     margin-top: var(--spacing-8);
     margin-bottom: var(--spacing-16);

@@ -30,7 +30,7 @@ export const RelatedPosts = ({ relatedPosts }: Props) => {
   `;
 
   const itemClass = css`
-    padding-bottom: var(--spacing-2);    
+    padding-bottom: var(--spacing-2);
     &:last-child {
       padding-bottom: 0;
     }
@@ -48,7 +48,7 @@ export const RelatedPosts = ({ relatedPosts }: Props) => {
   const titleLinkClass = css`
     color: inherit;
     text-decoration: none;
-    
+
     &:hover {
       text-decoration: underline;
     }

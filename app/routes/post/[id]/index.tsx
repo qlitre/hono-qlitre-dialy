@@ -9,8 +9,11 @@ export default createRoute(async (c) => {
   const client = getMicroCMSClient(c.env.SERVICE_DOMAIN, c.env.API_KEY);
   const post = await getPostDetail(client, id);
   const contentUrl = config.siteURL + `/post/${id}`;
-  const relatedPosts = post.relatedPosts && post.relatedPosts.length > 0 ? post.relatedPosts : undefined;
-  
+  const relatedPosts =
+    post.relatedPosts && post.relatedPosts.length > 0
+      ? post.relatedPosts
+      : undefined;
+
   const meta: Meta = {
     title: post.title,
     description: post.description,
@@ -23,7 +26,7 @@ export default createRoute(async (c) => {
   return c.render(
     <div class="container">
       <ArticleDetail post={post} relatedPosts={relatedPosts} />
-    </div>, 
-    { meta }
+    </div>,
+    { meta },
   );
 });

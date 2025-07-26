@@ -28,8 +28,6 @@ export type Body = {
 } & RichEditor &
   AmazonAssociateLink;
 
-
-
 export type Post = {
   title: string;
   thumbnail: MicroCMSImage;
@@ -43,6 +41,9 @@ export type Post = {
   relatedPosts: RelatedPost[];
 } & MicroCMSListContent;
 
-export type RelatedPost = Pick<Post, 'id' | 'title' | 'description' | 'publishedAt'>;
+export type RelatedPost = Pick<
+  Post,
+  "id" | "title" | "description" | "publishedAt"
+>;
 export type RelatedPosts = RelatedPost[];
 export type PostListResponse = MicroCMSListResponse<Post>;
