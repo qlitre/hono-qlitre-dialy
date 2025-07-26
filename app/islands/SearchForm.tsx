@@ -1,5 +1,5 @@
 import { css } from "hono/css";
-import { useState } from "hono/jsx";
+import { useState, useRef, useEffect } from "hono/jsx";
 
 export const SearchForm = () => {
   const btnClass = css`
@@ -80,12 +80,62 @@ export const SearchForm = () => {
     outline: none;
   `;
 
+  const searchButton = css`
+    background: #4f46e5;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-left: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+
+    &:hover:not(:disabled) {
+      background: #4338ca;
+    }
+
+    &:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+    }
+  `;
+
+  const formClass = css`
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  `;
+
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const [isSearching, setIsSearching] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleSearch = () => {
-    if (query.trim() !== "") {
-      window.location.href = `/search?q=${encodeURIComponent(query)}`;
+  // モーダルが開いたときに入力フィールドにフォーカス
+  useEffect(() => {
+    if (isOpen && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isOpen]);
+
+  const handleSearch = async (e?: Event) => {
+    if (e) {
+      e.preventDefault();
+    }
+    
+    const trimmedQuery = query.trim();
+    if (trimmedQuery === "" || isSearching) {
+      return;
+    }
+
+    setIsSearching(true);
+    try {
+      window.location.href = `/search?q=${encodeURIComponent(trimmedQuery)}`;
+    } catch (error) {
+      console.error('Search error:', error);
+      setIsSearching(false);
     }
   };
 
@@ -93,6 +143,15 @@ export const SearchForm = () => {
     if (e.key === "Enter") {
       handleSearch();
     }
+    if (e.key === "Escape") {
+      setIsOpen(false);
+    }
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+    setQuery("");
+    setIsSearching(false);
   };
 
   return (
@@ -108,28 +167,44 @@ export const SearchForm = () => {
 
       {/* モーダル (検索ボックス) */}
       {isOpen && (
-        <div class={backdropClass} onClick={() => setIsOpen(false)}>
+        <div class={backdropClass} onClick={handleClose}>
           <div class={modalClass} onClick={(e) => e.stopPropagation()}>
             {/* 閉じるボタン */}
-            <button class={closeButtonClass} onClick={() => setIsOpen(false)}>
+            <button 
+              class={closeButtonClass} 
+              onClick={handleClose}
+              aria-label="検索を閉じる"
+            >
               ✕
             </button>
 
-            {/* 検索入力 */}
-            <div class={searchContainerClass}>
-              <input
-                id="search"
-                name="search"
-                type="text"
-                class={searchInput}
-                placeholder="Search..."
-                value={query}
-                onInput={(e) =>
-                  setQuery((e.currentTarget as HTMLInputElement).value)
-                }
-                onKeyDown={handleKeyDown}
-              />
-            </div>
+            {/* 検索フォーム */}
+            <form class={formClass} onSubmit={handleSearch}>
+              <div class={searchContainerClass}>
+                <input
+                  ref={inputRef}
+                  id="search-input"
+                  name="search"
+                  type="text"
+                  class={searchInput}
+                  placeholder="記事を検索..."
+                  value={query}
+                  onInput={(e) =>
+                    setQuery((e.currentTarget as HTMLInputElement).value)
+                  }
+                  onKeyDown={handleKeyDown}
+                  disabled={isSearching}
+                />
+                <button
+                  type="submit"
+                  class={searchButton}
+                  disabled={!query.trim() || isSearching}
+                  aria-label="検索を実行"
+                >
+                  {isSearching ? "検索中..." : "検索"}
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}
