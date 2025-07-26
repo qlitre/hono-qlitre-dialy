@@ -16,7 +16,7 @@ export default createRoute(async (c) => {
   const tagId = c.req.param("tagId");
   const pageId = c.req.param("pageId");
   const offset = (Number(pageId) - 1) * limit;
-  const client = getMicroCMSClient(c.env.SERVICE_DOMAIN, c.env.API_KEY);
+  const client = getMicroCMSClient({ serviceDomain: c.env.SERVICE_DOMAIN, apiKey: c.env.API_KEY });
   const queries: MicroCMSQueries = {
     filters: `tag[contains]${tagId}`,
     limit: limit,
@@ -25,9 +25,9 @@ export default createRoute(async (c) => {
     orders: "-publishedAt",
   };
 
-  const posts = await getPosts(client, queries);
-  const categories = await getCategories(client);
-  const tagDetail = await getTagDetail(client, tagId);
+  const posts = await getPosts({ client, queries });
+  const categories = await getCategories({ client });
+  const tagDetail = await getTagDetail({ client, contentId: tagId });
   const totalCount = posts.totalCount;
   const currentPage = Number(pageId);
   const paginationMaterial = {

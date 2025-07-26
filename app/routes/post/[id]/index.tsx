@@ -6,8 +6,8 @@ import { getMicroCMSClient, getPostDetail } from "../../../libs/microcms";
 
 export default createRoute(async (c) => {
   const { id } = c.req.param();
-  const client = getMicroCMSClient(c.env.SERVICE_DOMAIN, c.env.API_KEY);
-  const post = await getPostDetail(client, id);
+  const client = getMicroCMSClient({ serviceDomain: c.env.SERVICE_DOMAIN, apiKey: c.env.API_KEY });
+  const post = await getPostDetail({ client, contentId: id });
   const contentUrl = config.siteURL + `/post/${id}`;
   const relatedPosts =
     post.relatedPosts && post.relatedPosts.length > 0

@@ -16,7 +16,7 @@ export default createRoute(async (c) => {
   const categoryId = c.req.param("categoryId");
   const pageId = c.req.param("pageId");
   const offset = (Number(pageId) - 1) * limit;
-  const client = getMicroCMSClient(c.env.SERVICE_DOMAIN, c.env.API_KEY);
+  const client = getMicroCMSClient({ serviceDomain: c.env.SERVICE_DOMAIN, apiKey: c.env.API_KEY });
   const queries: MicroCMSQueries = {
     filters: `category[equals]${categoryId}`,
     limit: limit,
@@ -24,9 +24,9 @@ export default createRoute(async (c) => {
     offset: offset,
     orders: "-publishedAt",
   };
-  const posts = await getPosts(client, queries);
-  const categories = await getCategories(client);
-  const categoryDetail = await getCategoryDetail(client, categoryId);
+  const posts = await getPosts({ client, queries });
+  const categories = await getCategories({ client });
+  const categoryDetail = await getCategoryDetail({ client, contentId: categoryId });
   const totalCount = posts.totalCount;
   const currentPage = Number(pageId);
   const paginationMaterial = {

@@ -14,15 +14,15 @@ const limit = BLOG_PER_PAGE;
 export default createRoute(async (c) => {
   const pageId = c.req.param("pageId");
   const offset = (Number(pageId) - 1) * limit;
-  const client = getMicroCMSClient(c.env.SERVICE_DOMAIN, c.env.API_KEY);
+  const client = getMicroCMSClient({ serviceDomain: c.env.SERVICE_DOMAIN, apiKey: c.env.API_KEY });
   const queries: MicroCMSQueries = {
     limit: limit,
     fields: config.postListFields,
     offset: offset,
     orders: "-publishedAt",
   };
-  const posts = await getPosts(client, queries);
-  const categories = await getCategories(client);
+  const posts = await getPosts({ client, queries });
+  const categories = await getCategories({ client });
   const totalCount = posts.totalCount;
   const currentPage = Number(pageId);
   const paginationMaterial = {

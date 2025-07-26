@@ -15,7 +15,7 @@ export const getMcpServer = async (c: Context<Env>) => {
   const serviceDomain = c.env.SERVICE_DOMAIN;
   const apiKey = c.env.API_KEY;
 
-  const client = getMicroCMSClient(serviceDomain, apiKey);
+  const client = getMicroCMSClient({ serviceDomain, apiKey });
 
   const server = new McpServer({
     name: "Qlitre Dialy MCP Server",
@@ -37,7 +37,7 @@ export const getMcpServer = async (c: Context<Env>) => {
         fields: config.postListFields,
         ...(q && { q: q }),
       };
-      const result = await getPosts(client, queries);
+      const result = await getPosts({ client, queries });
       return {
         content: [
           {
@@ -55,7 +55,7 @@ export const getMcpServer = async (c: Context<Env>) => {
       id: z.string().min(1),
     },
     async ({ id }) => {
-      const result = await getPostDetail(client, id);
+      const result = await getPostDetail({ client, contentId: id });
       return {
         content: [
           {

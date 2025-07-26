@@ -9,14 +9,14 @@ import { getMicroCMSClient, getPosts } from "../libs/microcms";
 const limit = 30;
 
 export default createRoute(async (c) => {
-  const client = getMicroCMSClient(c.env.SERVICE_DOMAIN, c.env.API_KEY);
+  const client = getMicroCMSClient({ serviceDomain: c.env.SERVICE_DOMAIN, apiKey: c.env.API_KEY });
   const keyword = c.req.query("q") || "";
   const queries: MicroCMSQueries = {
     limit: limit,
     fields: config.postListFields,
     q: keyword,
   };
-  const posts = await getPosts(client, queries);
+  const posts = await getPosts({ client, queries });
   const meta: Meta = {
     title: config.siteTitle,
     description: config.siteDescription,
