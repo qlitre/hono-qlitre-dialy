@@ -1,7 +1,7 @@
 import { createRoute } from "honox/factory";
 import type { Meta } from "../../../types/meta";
 import { config } from "../../../settings/siteSettings";
-import { DetailContent } from "../../../components/DetailContent";
+import { ArticleDetail } from "../../../components/ArticleDetail";
 import { getMicroCMSClient, getPostDetail } from "../../../libs/microcms";
 
 export default createRoute(async (c) => {
@@ -20,5 +20,10 @@ export default createRoute(async (c) => {
     ogpImage: post.thumbnail?.url,
     ogpUrl: contentUrl,
   };
-  return c.render(<DetailContent post={post} relatedPosts={relatedPosts} />, { meta });
+  return c.render(
+    <div class="container">
+      <ArticleDetail post={post} relatedPosts={relatedPosts} />
+    </div>, 
+    { meta }
+  );
 });
