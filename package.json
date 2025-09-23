@@ -21,7 +21,7 @@
     "@cloudflare/workers-types": "^4.20240529.0",
     "@hono/vite-build": "^1.0.0",
     "@hono/vite-dev-server": "^0.15.1",
-    "@hono/vite-ssg": "^0.1.0",
+    "@hono/vite-ssg": "^0.2.0",
     "prettier": "^3.5.3",
     "typescript": "5.5.3",
     "vite": "^5.4.8",
