@@ -39,7 +39,11 @@ export const getCategories = async ({ client }: { client: MicroCMSClient }) => {
   });
 };
 
-export const getPostDetail = async ({ client, contentId, queries }: ClientWithContentId) => {
+export const getPostDetail = async ({
+  client,
+  contentId,
+  queries,
+}: ClientWithContentId) => {
   return await client.getListDetail<Post>({
     endpoint: "post",
     contentId,
@@ -47,7 +51,11 @@ export const getPostDetail = async ({ client, contentId, queries }: ClientWithCo
   });
 };
 
-export const getTagDetail = async ({ client, contentId, queries }: ClientWithContentId) => {
+export const getTagDetail = async ({
+  client,
+  contentId,
+  queries,
+}: ClientWithContentId) => {
   return await client.getListDetail<Tag>({
     endpoint: "tag",
     contentId,
@@ -55,7 +63,11 @@ export const getTagDetail = async ({ client, contentId, queries }: ClientWithCon
   });
 };
 
-export const getCategoryDetail = async ({ client, contentId, queries }: ClientWithContentId) => {
+export const getCategoryDetail = async ({
+  client,
+  contentId,
+  queries,
+}: ClientWithContentId) => {
   return await client.getListDetail<Category>({
     endpoint: "category",
     contentId,

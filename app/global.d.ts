@@ -8,7 +8,7 @@ type Head = {
 type Bindings = {
   API_KEY: string;
   SERVICE_DOMAIN: string;
-  DB:D1Database;
+  DB: D1Database;
 };
 
 declare module "hono" {

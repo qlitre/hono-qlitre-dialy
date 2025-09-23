@@ -124,7 +124,7 @@ export const SearchForm = () => {
     if (e) {
       e.preventDefault();
     }
-    
+
     const trimmedQuery = query.trim();
     if (trimmedQuery === "" || isSearching) {
       return;
@@ -134,7 +134,7 @@ export const SearchForm = () => {
     try {
       window.location.href = `/search?q=${encodeURIComponent(trimmedQuery)}`;
     } catch (error) {
-      console.error('Search error:', error);
+      console.error("Search error:", error);
       setIsSearching(false);
     }
   };
@@ -170,8 +170,8 @@ export const SearchForm = () => {
         <div class={backdropClass} onClick={handleClose}>
           <div class={modalClass} onClick={(e) => e.stopPropagation()}>
             {/* 閉じるボタン */}
-            <button 
-              class={closeButtonClass} 
+            <button
+              class={closeButtonClass}
               onClick={handleClose}
               aria-label="検索を閉じる"
             >

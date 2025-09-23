@@ -25,13 +25,16 @@ export default createRoute(async (c) => {
 
     // トランザクションで両テーブルを更新
     await c.env.DB.batch([
-      c.env.DB.prepare(`
+      c.env.DB.prepare(
+        `
         INSERT INTO daily_page_views (page_id, date, views)
         VALUES (?, ?, 1)
         ON CONFLICT(page_id, date) DO UPDATE SET views = views + 1
-      `).bind(id, today),
+      `,
+      ).bind(id, today),
 
-      c.env.DB.prepare(`
+      c.env.DB.prepare(
+        `
         INSERT INTO popular_page (page_id, views, title, description, thumbnail_url, category_id, category_name, tags, published_at, updated_at)
         VALUES (?, 1, ?, ?, ?, ?, ?, ?, ?, ?)
         ON CONFLICT(page_id) DO UPDATE SET
@@ -44,7 +47,8 @@ export default createRoute(async (c) => {
           tags = ?,
           published_at = ?,
           updated_at = ?
-      `).bind(
+      `,
+      ).bind(
         id,
         post.title,
         post.description,
@@ -61,8 +65,8 @@ export default createRoute(async (c) => {
         post.category?.name,
         tags,
         post.publishedAt,
-        post.updatedAt
-      )
+        post.updatedAt,
+      ),
     ]);
   } catch (error) {
     console.error("Failed to record page view:", error);
@@ -81,6 +85,6 @@ export default createRoute(async (c) => {
     <div class="container">
       <ArticleDetail post={post} relatedPosts={relatedPosts} />
     </div>,
-    { meta }
+    { meta },
   );
 });
