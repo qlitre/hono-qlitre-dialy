@@ -3,6 +3,7 @@ import type { Meta } from "../../../types/meta";
 import { config } from "../../../settings/siteSettings";
 import { ArticleDetail } from "../../../components/ArticleDetail";
 import { getMicroCMSClient, getPostDetail } from "../../../libs/microcms";
+import { jstDatetime } from "../../../utils/jstDatetime";
 
 export default createRoute(async (c) => {
   const { id } = c.req.param();
@@ -13,6 +14,18 @@ export default createRoute(async (c) => {
     post.relatedPosts && post.relatedPosts.length > 0
       ? post.relatedPosts
       : undefined;
+
+  // ページビューを記録
+  const today = jstDatetime(new Date().toISOString(), "YYYY-MM-DD");
+  try {
+    await c.env.DB.prepare(`
+      INSERT INTO daily_page_views (page_id, date, views)
+      VALUES (?, ?, 1)
+      ON CONFLICT(page_id, date) DO UPDATE SET views = views + 1
+    `).bind(id, today).run();
+  } catch (error) {
+    console.error("Failed to record page view:", error);
+  }
 
   const meta: Meta = {
     title: post.title,
