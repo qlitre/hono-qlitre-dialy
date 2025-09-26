@@ -127,7 +127,7 @@ export const getMcpServer = async (c: Context<Env>) => {
         popularArticles.push({
           id: row.page_id,
           title: row.title,
-          url: `${config.siteURL}/posts/${row.page_id}`,
+          url: `${config.siteURL}/post/${row.page_id}`,
           views: row.views,
           description: row.description,
           thumbnail_url: row.thumbnail_url,
