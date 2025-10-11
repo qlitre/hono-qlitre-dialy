@@ -1,22 +1,17 @@
 import { createRoute } from "honox/factory";
 import { config } from "../settings/siteSettings";
-import type { Post } from "../types/blog";
 import { jstDatetime } from "../utils/jstDatetime";
-import { getMicroCMSClient, getPosts } from "../libs/microcms";
+import { getMicroCMSClient, getAllPosts } from "../libs/microcms";
 
 export default createRoute(async (c) => {
   const client = getMicroCMSClient({
     serviceDomain: c.env.SERVICE_DOMAIN,
     apiKey: c.env.API_KEY,
   });
-  const allPosts = await client.getAllContents<Post>({
-    endpoint: "post",
+  const allPosts = await getAllPosts({
+    client: client,
     queries: { fields: "id,updatedAt" },
   });
-  const r = await getPosts({ client, queries: { limit: 0 } });
-  const limit = 50;
-  const tot = r.totalCount;
-  const cnt = Math.ceil(tot / limit);
   const urls: string[] = [];
   const baseUrl = config.siteURL;
   for (const post of allPosts) {

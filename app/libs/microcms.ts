@@ -33,6 +33,13 @@ export const getPosts = async ({ client, queries }: ClientWithQueries) => {
   });
 };
 
+export const getAllPosts = async ({ client, queries }: ClientWithQueries) => {
+  return await client.getAllContents<Post>({
+    endpoint: "post",
+    queries,
+  });
+};
+
 export const getCategories = async ({ client }: { client: MicroCMSClient }) => {
   return await client.getList<Category>({
     endpoint: "category",
