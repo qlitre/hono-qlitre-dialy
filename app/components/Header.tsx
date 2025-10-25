@@ -1,6 +1,5 @@
 import { css } from "hono/css";
 import { config } from "../settings/siteSettings";
-import { SearchForm } from "../islands/SearchForm";
 
 export const Header = () => {
   const rootClass = css`
@@ -81,7 +80,7 @@ export const Header = () => {
             <a href="/">{config.siteTitle}</a>
           </h1>
 
-          {/* ナビゲーション (GitHub, About, 検索) */}
+          {/* ナビゲーション (GitHub, About, Feed, 検索) */}
           <nav class={navigationClass}>
             <a
               class={navigationLinkClass}
@@ -107,7 +106,12 @@ export const Header = () => {
             >
               Feed
             </a>
-            <SearchForm />
+            <a
+              class={navigationLinkClass}
+              href="/search"
+            >
+              Search
+            </a>
           </nav>
         </header>
       </div>
