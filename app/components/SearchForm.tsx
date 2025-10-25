@@ -24,6 +24,7 @@ export const SearchForm = ({
     padding: var(--spacing-3);
     border: 1px solid #d1d5db;
     border-radius: 8px;
+    font-size: 16px;
 
     &:focus {
       outline: none;
