@@ -8,10 +8,7 @@ import { getMicroCMSClient, getPosts, getCategories } from "../libs/microcms";
 const limit = BLOG_PER_PAGE;
 
 export default createRoute(async (c) => {
-  const client = getMicroCMSClient({
-    serviceDomain: c.env.SERVICE_DOMAIN,
-    apiKey: c.env.API_KEY,
-  });
+  const client = getMicroCMSClient(c);
   const queries: MicroCMSQueries = {
     limit: limit,
     fields: config.postListFields,

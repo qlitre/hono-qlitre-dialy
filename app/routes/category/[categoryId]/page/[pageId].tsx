@@ -16,10 +16,7 @@ export default createRoute(async (c) => {
   const categoryId = c.req.param("categoryId");
   const pageId = c.req.param("pageId");
   const offset = (Number(pageId) - 1) * limit;
-  const client = getMicroCMSClient({
-    serviceDomain: c.env.SERVICE_DOMAIN,
-    apiKey: c.env.API_KEY,
-  });
+  const client = getMicroCMSClient(c);
   const queries: MicroCMSQueries = {
     filters: `category[equals]${categoryId}`,
     limit: limit,

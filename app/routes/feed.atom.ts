@@ -4,10 +4,7 @@ import { jstDatetime } from "../utils/jstDatetime";
 import { getMicroCMSClient, getPosts } from "../libs/microcms";
 
 export default createRoute(async (c) => {
-  const client = getMicroCMSClient({
-    serviceDomain: c.env.SERVICE_DOMAIN,
-    apiKey: c.env.API_KEY,
-  });
+  const client = getMicroCMSClient(c);
   const limit = 50;
   const r = await getPosts({
     client,

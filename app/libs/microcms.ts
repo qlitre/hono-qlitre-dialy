@@ -1,5 +1,6 @@
 import { createClient, type MicroCMSQueries } from "microcms-js-sdk";
 import type { Post, Category, Tag } from "../types/blog";
+import type { Context } from "hono";
 
 type MicroCMSClient = ReturnType<typeof createClient>;
 
@@ -19,10 +20,10 @@ type ClientWithContentId = {
   queries?: MicroCMSQueries;
 };
 
-export const getMicroCMSClient = ({ serviceDomain, apiKey }: ClientConfig) => {
+export const getMicroCMSClient = (c: Context) => {
   return createClient({
-    serviceDomain,
-    apiKey,
+    serviceDomain: c.env.SERVICE_DOMAIN,
+    apiKey: c.env.API_KEY,
   });
 };
 

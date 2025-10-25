@@ -7,10 +7,7 @@ import { jstDatetime } from "../../../utils/jstDatetime";
 
 export default createRoute(async (c) => {
   const { id } = c.req.param();
-  const client = getMicroCMSClient({
-    serviceDomain: c.env.SERVICE_DOMAIN,
-    apiKey: c.env.API_KEY,
-  });
+  const client = getMicroCMSClient(c);
   const post = await getPostDetail({ client, contentId: id });
   const contentUrl = config.siteURL + `/post/${id}`;
   const relatedPosts =

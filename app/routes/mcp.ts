@@ -55,11 +55,9 @@ interface PopularArticleResponse {
 const limit = 30;
 
 export const getMcpServer = async (c: Context<Env>) => {
-  const serviceDomain = c.env.SERVICE_DOMAIN;
-  const apiKey = c.env.API_KEY;
   const db = c.env.DB;
 
-  const client = getMicroCMSClient({ serviceDomain, apiKey });
+  const client = getMicroCMSClient(c);
 
   const server = new McpServer({
     name: "Qlitre Dialy MCP Server",
