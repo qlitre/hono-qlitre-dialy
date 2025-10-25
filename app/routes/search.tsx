@@ -4,6 +4,7 @@ import type { MicroCMSQueries } from "microcms-js-sdk";
 import type { Meta } from "../types/meta";
 import { ArticleList } from "../components/ArticleList";
 import { Breadcrumbs } from "../components/Breadcrumbs";
+import { SearchForm } from "../components/SearchForm";
 import { getMicroCMSClient, getPosts } from "../libs/microcms";
 
 const limit = 30;
@@ -29,9 +30,10 @@ export default createRoute(async (c) => {
     <>
       <div class="container">
         <Breadcrumbs keyword={keyword}></Breadcrumbs>
+        <SearchForm initialQuery={keyword} placeholder="記事を検索..." />
         <ArticleList posts={posts.contents}></ArticleList>
       </div>
     </>,
-    { meta },
+    { meta }
   );
 });
