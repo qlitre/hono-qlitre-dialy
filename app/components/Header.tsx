@@ -106,10 +106,7 @@ export const Header = () => {
             >
               Feed
             </a>
-            <a
-              class={navigationLinkClass}
-              href="/search"
-            >
+            <a class={navigationLinkClass} href="/search">
               Search
             </a>
           </nav>
