@@ -8,7 +8,7 @@
     "deploy": "yarn build && wrangler deploy"
   },
   "dependencies": {
-    "@hono/mcp": "^0.1.0",
+    "@hono/mcp": "^0.2.0",
     "@modelcontextprotocol/sdk": "^1.13.0",
     "dayjs": "^1.11.10",
     "hono": "^4.10.3",
