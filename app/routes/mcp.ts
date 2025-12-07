@@ -93,7 +93,7 @@ export const getMcpServer = async (c: Context<Env>) => {
           },
         ],
       };
-    }
+    },
   );
 
   server.registerTool(
@@ -117,7 +117,7 @@ export const getMcpServer = async (c: Context<Env>) => {
           },
         ],
       };
-    }
+    },
   );
 
   server.registerTool(
@@ -154,7 +154,7 @@ export const getMcpServer = async (c: Context<Env>) => {
           },
         ],
       };
-    }
+    },
   );
 
   return server;
@@ -185,7 +185,7 @@ app.onError((err, c) => {
       },
       id: null,
     },
-    500
+    500,
   );
 });
 
