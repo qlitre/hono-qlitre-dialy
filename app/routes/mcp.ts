@@ -64,21 +64,26 @@ export const getMcpServer = async (c: Context<Env>) => {
     version: "0.0.1",
   });
 
-  server.tool(
+  server.registerTool(
     "get_posts",
-    "Get Blog Posts with optional search",
     {
-      page: z.number().min(1).default(1),
-      q: z.string().optional(),
+      title: "Get Blog Posts with optional search",
+      inputSchema: {
+        page: z.number().min(1).default(1),
+        q: z.string().optional(),
+      },
     },
-    async ({ page, q }) => {
+    async (params: { page: number; q?: string } | undefined) => {
+      const page = params?.page || 1;
       const offset = limit * (page - 1);
       const queries: MicroCMSQueries = {
         limit: limit,
         offset: offset,
         fields: config.postListFields,
-        ...(q && { q: q }),
       };
+      if (params?.q) {
+        queries.q = params.q;
+      }
       const result = await getPosts({ client, queries });
       return {
         content: [
@@ -88,16 +93,22 @@ export const getMcpServer = async (c: Context<Env>) => {
           },
         ],
       };
-    },
+    }
   );
-  server.tool(
+
+  server.registerTool(
     "get_detail",
-    "Get Blog Detail",
     {
-      id: z.string().min(1),
+      title: "Get Blog Detail",
+      inputSchema: {
+        id: z.string().min(1),
+      },
     },
-    async ({ id }) => {
-      const result = await getPostDetail({ client, contentId: id });
+    async (params: { id: string } | undefined) => {
+      if (!params?.id) {
+        throw new Error("id is required");
+      }
+      const result = await getPostDetail({ client, contentId: params.id });
       return {
         content: [
           {
@@ -106,13 +117,15 @@ export const getMcpServer = async (c: Context<Env>) => {
           },
         ],
       };
-    },
+    }
   );
 
-  server.tool(
+  server.registerTool(
     "get_popular_articles",
-    "get 10 popular articles",
-    {},
+    {
+      title: "Get 10 popular articles",
+      inputSchema: {},
+    },
     async () => {
       const result = (await db
         .prepare(`SELECT * FROM popular_page ORDER BY views desc LIMIT 10`)
@@ -141,7 +154,7 @@ export const getMcpServer = async (c: Context<Env>) => {
           },
         ],
       };
-    },
+    }
   );
 
   return server;
@@ -172,7 +185,7 @@ app.onError((err, c) => {
       },
       id: null,
     },
-    500,
+    500
   );
 });
 
