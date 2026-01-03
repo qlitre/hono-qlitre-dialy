@@ -32,8 +32,8 @@ export const ShareX = ({ slug, title }: Props) => {
     width: 20px;
     height: 20px;
   `;
-
-  const twitterLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${config.siteURL}/post/${slug}&via=${config.twitterID}`;
+  const text = `${title}\n${config.siteURL}/post/${slug}`
+  const twitterLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&via=${config.twitterID}`;
   return (
     <>
       <a
