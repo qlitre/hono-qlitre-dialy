@@ -431,10 +431,10 @@
   resolved "https://registry.yarnpkg.com/@hono/vite-build/-/vite-build-1.3.0.tgz#58da439620603c1a12f41df2b070f16857de5b50"
   integrity sha512-YBL2fj12noNbwbpTDPrpsQY0QMC5q5UnkzoaOmSvhVQv6ffuv/p/EkwQxYOotDps3gcJPiNJsvgcgTtjEyC2aA==
 
-"@hono/vite-dev-server@^0.20.1":
-  version "0.20.1"
-  resolved "https://registry.yarnpkg.com/@hono/vite-dev-server/-/vite-dev-server-0.20.1.tgz#8cd31f74a374af08a63cfe3adfaf322a0aea9b66"
-  integrity sha512-wXikV0C5tPqwH6udA68VTsmnFKWGhIeBuhuxgdGDQIbVNbv5gD0vqKLhx4nG1o4dhksaWPiiSqZV58sTKUzNxA==
+"@hono/vite-dev-server@^0.23.0":
+  version "0.23.0"
+  resolved "https://registry.yarnpkg.com/@hono/vite-dev-server/-/vite-dev-server-0.23.0.tgz#e4378c99e5e316025e490e6f6b55148e4d451fc9"
+  integrity sha512-tHV86xToed9Up0j/dubQW2PDP4aYNFDSfQrjcV6Ra7bqCGrxhtg/zZBmbgSco3aTxKOEPzDXKK+6seAAfsbIXw==
   dependencies:
     "@hono/node-server" "^1.14.2"
     minimatch "^9.0.3"
@@ -1740,21 +1740,21 @@ hono-rate-limiter@^0.5.3:
   resolved "https://registry.yarnpkg.com/hono-rate-limiter/-/hono-rate-limiter-0.5.3.tgz#29ee906b904edd38651f623630342b249d884b34"
   integrity sha512-M0DxbVMpPELEzLi0AJg1XyBHLGJXz7GySjsPoK+gc5YeeBsdGDGe+2RvVuCAv8ydINiwlbxqYMNxUEyYfRji/A==
 
-hono@^4.10.3:
-  version "4.10.3"
-  resolved "https://registry.yarnpkg.com/hono/-/hono-4.10.3.tgz#4e4063eebaac2b735ca4c7455b4d7a6339afc251"
-  integrity sha512-2LOYWUbnhdxdL8MNbNg9XZig6k+cZXm5IjHn2Aviv7honhBMOHb+jxrKIeJRZJRmn+htUCKhaicxwXuUDlchRA==
+hono@^4.11.4:
+  version "4.11.4"
+  resolved "https://registry.yarnpkg.com/hono/-/hono-4.11.4.tgz#0c1ba7175e08624932224bc7644e4cb22b294080"
+  integrity sha512-U7tt8JsyrxSRKspfhtLET79pU8K+tInj5QZXs1jSugO1Vq5dFj3kmZsRldo29mTBfcjDRVRXrEZ6LS63Cog9ZA==
 
-honox@^0.1.49:
-  version "0.1.49"
-  resolved "https://registry.yarnpkg.com/honox/-/honox-0.1.49.tgz#d52bec9482e8dafbadafc9fc0f9ef0262367fd34"
-  integrity sha512-oEM+Xw5r4/7Htz1gXA+0XO5aJ65xrYn+V+IzNOsKU7VCJEDXV3cmnFc/EKplXXJiMXuqz6wCH7rr/LPHGwg1rA==
+honox@^0.1.53:
+  version "0.1.53"
+  resolved "https://registry.yarnpkg.com/honox/-/honox-0.1.53.tgz#f0cb619f50e9e6f071f1b0c275dad4e39dacfa1d"
+  integrity sha512-cVd5RErXH5gHamGc29+pvFFJ54b051Q/hOShSDWsNjRkZ2TcbawlDzgbD9htiC0lFgYCuo14DUhb4pdB5FERig==
   dependencies:
     "@babel/generator" "7.25.6"
     "@babel/parser" "7.25.6"
     "@babel/traverse" "7.25.6"
     "@babel/types" "7.25.6"
-    "@hono/vite-dev-server" "^0.20.1"
+    "@hono/vite-dev-server" "^0.23.0"
     jsonc-parser "3.3.1"
     precinct "12.2.0"
   optionalDependencies:
