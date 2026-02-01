@@ -11,7 +11,7 @@
     "@hono/mcp": "^0.2.3",
     "@modelcontextprotocol/sdk": "^1.25.3",
     "dayjs": "^1.11.10",
-    "hono": "^4.11.5",
+    "hono": "^4.11.7",
     "hono-rate-limiter": "^0.5.3",
     "honox": "^0.1.53",
     "microcms-js-sdk": "^3.2.0",
