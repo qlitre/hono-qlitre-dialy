@@ -19,7 +19,7 @@
     "shiki": "^3.13.0"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20240529.0",
+    "@cloudflare/workers-types": "^4.20260131.0",
     "@hono/vite-build": "^1.0.0",
     "@hono/vite-dev-server": "^0.24.0",
     "prettier": "^3.8.1",
