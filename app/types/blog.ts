@@ -1,8 +1,4 @@
-import type {
-  MicroCMSDate,
-  MicroCMSListContent,
-  MicroCMSListResponse,
-} from "microcms-js-sdk";
+import type { MicroCMSListContent } from "microcms-js-sdk";
 import type { MicroCMSImage } from "microcms-js-sdk";
 
 export type Tag = {
@@ -46,4 +42,3 @@ export type RelatedPost = Pick<
   "id" | "title" | "description" | "publishedAt"
 >;
 export type RelatedPosts = RelatedPost[];
-export type PostListResponse = MicroCMSListResponse<Post>;
