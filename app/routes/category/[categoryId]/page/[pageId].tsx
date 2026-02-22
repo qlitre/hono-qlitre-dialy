@@ -15,6 +15,11 @@ const limit = BLOG_PER_PAGE;
 export default createRoute(async (c) => {
   const categoryId = c.req.param("categoryId");
   const pageId = c.req.param("pageId");
+
+  if (!categoryId || !pageId) {
+    throw new Error("categoryId and pageId are required");
+  }
+
   const offset = (Number(pageId) - 1) * limit;
   const client = getMicroCMSClient(c);
   const queries: MicroCMSQueries = {
