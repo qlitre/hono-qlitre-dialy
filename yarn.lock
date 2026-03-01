@@ -2113,10 +2113,10 @@ microcms-js-sdk@^3.2.0:
   dependencies:
     async-retry "^1.3.3"
 
-microcms-rich-editor-handler@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/microcms-rich-editor-handler/-/microcms-rich-editor-handler-1.0.1.tgz#b9a0834cb62334369a0d56b765fcb40492c0b906"
-  integrity sha512-TZj9EFrmmseZAnRqlKS5p8BdBYguyodwDh4ZpQKvqVJYX440hfnurFJL+sOZjpGjNuezvasQuaTRV+Tk+5kk+A==
+microcms-rich-editor-handler@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/microcms-rich-editor-handler/-/microcms-rich-editor-handler-1.0.2.tgz#e8063b2dae86bd8e509aadf49ab99041dcb7cfcb"
+  integrity sha512-E8STv6l57DoP+//UJ+8OAs7aUZlcpIfFaK8YpvtxWB+W9LTgvFGqi7uQoCY4W9U0t8Dbr/eZAiLaL3l3QYD17A==
   dependencies:
     cheerio "^1.0.0"
 
