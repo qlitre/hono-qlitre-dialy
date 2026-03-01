@@ -444,10 +444,10 @@
   resolved "https://registry.yarnpkg.com/@hono/node-server/-/node-server-1.19.9.tgz#8f37119b1acf283fd3f6035f3d1356fdb97a09ac"
   integrity sha512-vHL6w3ecZsky+8P5MD+eFfaGTyCeOHUIFYMGpQGbrBTSmNNoxv0if69rEZ5giu36weC5saFuznL411gRX7bJDw==
 
-"@hono/vite-build@^1.9.2":
-  version "1.9.2"
-  resolved "https://registry.yarnpkg.com/@hono/vite-build/-/vite-build-1.9.2.tgz#8dc6066c0bd8488b204039ce1123d55ebc925f63"
-  integrity sha512-7/qan3lgeA8mMv7jtx5KX0wrAdMteNqI87JcZjS1CUN9hhIsaqOvySXcT3lZLyhYidywl+s88ZX84I0knefItA==
+"@hono/vite-build@^1.9.3":
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/@hono/vite-build/-/vite-build-1.9.3.tgz#7441f916e9a595a76362c982638e8fe9f0042fa9"
+  integrity sha512-qV9PQy4Xc0fOIfkff8ap1+rpde6Uf6VxlyWJYntAEr7K1A0IAWB4NncIzefWOOXCDrrX85AbBxU305yAB3OLsA==
 
 "@hono/vite-dev-server@^0.23.0":
   version "0.23.0"
