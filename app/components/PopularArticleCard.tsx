@@ -41,6 +41,12 @@ export const PopularArticleCard = ({ post, rank }: Props) => {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    @media (max-width: 768px) {
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+    }
   `;
 
   const subtitleClass = css`
