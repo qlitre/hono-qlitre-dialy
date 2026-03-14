@@ -57,8 +57,10 @@ export const Header = () => {
     gap: var(--spacing-3);
 
     @media (max-width: 768px) {
+      flex-wrap: wrap;
       justify-content: center;
       width: 100%;
+      gap: var(--spacing-1) var(--spacing-3);
     }
   `;
 
@@ -68,6 +70,10 @@ export const Header = () => {
 
     &:hover {
       text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      font-size: var(--font-size-sm);
     }
   `;
 
