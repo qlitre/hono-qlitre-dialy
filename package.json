@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@hono/mcp": "^0.2.5",
-    "@modelcontextprotocol/sdk": "^1.25.3",
+    "@modelcontextprotocol/sdk": "^1.29.0",
     "dayjs": "^1.11.10",
     "hono": "^4.12.10",
     "hono-rate-limiter": "^0.5.3",
