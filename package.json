@@ -24,7 +24,7 @@
     "@hono/vite-dev-server": "^0.25.1",
     "knip": "^5.85.0",
     "prettier": "^3.8.1",
-    "typescript": "5.9.3",
+    "typescript": "6.0.2",
     "vite": "^8.0.3",
     "wrangler": "4"
   }
