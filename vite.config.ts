@@ -21,7 +21,6 @@ export default defineConfig({
       "microcms-js-sdk",
       "dayjs",
       "microcms-rich-editor-handler",
-      "shiki",
       "@modelcontextprotocol/sdk",
       "@hono/mcp",
       "cloudflare:workers",

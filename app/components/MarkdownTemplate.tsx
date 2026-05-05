@@ -4,6 +4,7 @@ import {
   responsiveImageTransformer,
   tocExtractor,
 } from "microcms-rich-editor-handler";
+import { shikiCoreTransformer } from "../libs/shikiTransformer";
 
 type Props = {
   body: string;
@@ -13,7 +14,7 @@ export const MarkdownTemplate = async ({ body }: Props) => {
   const { html, data } = await microCMSRichEditorHandler(
     body, // MicroCMSから取得したデータのリッチエディタのHTML文字列
     {
-      transformers: [responsiveImageTransformer()],
+      transformers: [responsiveImageTransformer(), shikiCoreTransformer()],
       extractors: {
         toc: [tocExtractor(), { phase: "before" }],
       },
