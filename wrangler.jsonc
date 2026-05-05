@@ -1,0 +1,19 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "hono-qlitre-dialy",
+	"main": "./dist/index.js",
+	"compatibility_date": "2025-05-01",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"assets": {
+		"directory": "./dist"
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "qlitre-dialy",
+			"database_id": "b02f1fc4-4b03-4ca1-b7df-10f653a8b9cd"
+		}
+	]
+}
