@@ -13,7 +13,7 @@
     "dayjs": "^1.11.10",
     "hono": "^4.12.16",
     "hono-rate-limiter": "^0.5.3",
-    "honox": "^0.1.55",
+    "honox": "^0.1.56",
     "microcms-js-sdk": "^3.3.0",
     "microcms-rich-editor-handler": "^1.0.2",
     "shiki": "^4.0.2"
