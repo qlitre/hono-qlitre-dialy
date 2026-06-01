@@ -341,10 +341,18 @@
   resolved "https://registry.yarnpkg.com/@hono/vite-build/-/vite-build-1.11.1.tgz#c604a3ae033e1efbd7c522320dec6a12abc63cc4"
   integrity sha512-EQJmFL7G+71MXZQ/mmywNl4qW6DSyjTdC30cq7mlDS451a1/jE86old0M2DCWzNGCO50sv7CzQDYkz4L5dq5VQ==
 
-"@hono/vite-dev-server@^0.25.1", "@hono/vite-dev-server@^0.25.3":
+"@hono/vite-dev-server@^0.25.1":
   version "0.25.3"
   resolved "https://registry.yarnpkg.com/@hono/vite-dev-server/-/vite-dev-server-0.25.3.tgz#c3290f4446c2267d3882649c2bcb80d06a9d423f"
   integrity sha512-w3uQ0KQF0i/SDcJ6+d5njEFTr6pbolajrt/GxV0pliYL+4ywiBqiOFRWSpwW3mTuZ80boww7+ZxJTGTBIzyBQg==
+  dependencies:
+    "@hono/node-server" "^1.19.11"
+    minimatch "^9.0.3"
+
+"@hono/vite-dev-server@^0.26.0":
+  version "0.26.0"
+  resolved "https://registry.yarnpkg.com/@hono/vite-dev-server/-/vite-dev-server-0.26.0.tgz#c62d268202f9441725e185a9309bf2a472cde215"
+  integrity sha512-DYHht1lge/SRGd1dpOgwhS6DpamSaDtxAOlwl2RkcYyLFy769DZPEX6CeRaUzeDNgClO9JAuT83VptxB5mH5jA==
   dependencies:
     "@hono/node-server" "^1.19.11"
     minimatch "^9.0.3"
