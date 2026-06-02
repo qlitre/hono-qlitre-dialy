@@ -21,7 +21,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20260401.1",
     "@hono/vite-build": "^1.11.1",
-    "@hono/vite-dev-server": "^0.25.3",
+    "@hono/vite-dev-server": "^0.26.0",
     "knip": "^6.11.0",
     "prettier": "^3.8.3",
     "typescript": "6.0.3",
