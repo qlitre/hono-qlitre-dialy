@@ -5,14 +5,16 @@ import {
   tocExtractor,
 } from "microcms-rich-editor-handler";
 import { shikiCoreTransformer } from "../libs/shikiTransformer";
+import { optimizeRichEditorImages } from "../utils/microcmsImageUrl";
 
 type Props = {
   body: string;
 };
 
 export const MarkdownTemplate = async ({ body }: Props) => {
+  const _body = optimizeRichEditorImages(body);
   const { html, data } = await microCMSRichEditorHandler(
-    body, // MicroCMSから取得したデータのリッチエディタのHTML文字列
+    _body, // MicroCMSから取得したデータのリッチエディタのHTML文字列
     {
       transformers: [responsiveImageTransformer(), shikiCoreTransformer()],
       extractors: {
