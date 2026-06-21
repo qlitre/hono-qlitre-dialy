@@ -6,7 +6,7 @@ import { getMicroCMSClient, getPostDetail } from "../../../libs/microcms";
 import { jstDatetime } from "../../../utils/jstDatetime";
 
 export default createRoute(async (c) => {
-  const { id } = c.req.param();
+  const id = c.req.param("id");
 
   if (!id) {
     throw new Error("id is required");
