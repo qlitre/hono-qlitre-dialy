@@ -1,6 +1,6 @@
 import { createRoute } from "honox/factory";
-import { DetailContent } from "../../../../components/DetailContent";
-import { getMicroCMSClient, getPostDetail } from "../../../../libs/microcms";
+import { DetailContent } from "../../../components/DetailContent";
+import { getMicroCMSClient, getPostDetail } from "../../../libs/microcms";
 
 export default createRoute(async (c) => {
   const id = c.req.param("id");

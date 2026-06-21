@@ -28,6 +28,22 @@ export const ArticleDetail = ({ post, relatedPosts }: Props) => {
     font-size: var(--font-size-xl);
   `;
 
+  const tagRowClass = css`
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  `;
+
+  const mdLinkClass = css`
+    flex-shrink: 0;
+    font-size: var(--font-size-sm);
+    color: var(--c-gray-500);
+    text-decoration: none;
+    &:hover {
+      opacity: 0.7;
+    }
+  `;
+
   const publishedAtClass = css`
     margin-top: var(--spacing-4);
     color: var(--c-gray-700);
@@ -45,7 +61,10 @@ export const ArticleDetail = ({ post, relatedPosts }: Props) => {
       <p class={publishedAtClass}>
         {jstDatetime(post.publishedAt, "YYYY年MM月DD日")}
       </p>
-      <TagInline category={post.category} tags={post.tag}></TagInline>
+      <div class={tagRowClass}>
+        <TagInline category={post.category} tags={post.tag} />
+        <a class={mdLinkClass} href={`/post/${post.id}/md`}>マークダウンで読む</a>
+      </div>
       <LineDevider />
       {post.useRepeatedBody ? (
         <RepeatedBody repeatedBody={post.repeatedBody} />
