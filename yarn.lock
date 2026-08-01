@@ -334,10 +334,10 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.28.1.tgz#10064ee44f4347b90c9a02b446bbf80a91632b12"
   integrity sha512-bm4Mowrv+GXMlpWX++EcXw/iLyd1o3+bJkC2DkWXYVvgZCqD/bSj9ctZeAMC3cIxgjRVR2Dufaiu4YPxr5gW1A==
 
-"@hono/mcp@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@hono/mcp/-/mcp-0.3.0.tgz#0b496c107e57224f44bf57ee97f2377c35707d74"
-  integrity sha512-UhSWFbZwRxHBdptOn2r1HyB8Vt6gU+BL3AbTis2t8TBW69ZhG4soJQ09yEL/t/ymxszJnWp5Rq6tOXXOjuK1qg==
+"@hono/mcp@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@hono/mcp/-/mcp-0.3.1.tgz#911c2ae87a88a4f621fe15be684eddf23655b357"
+  integrity sha512-EB2rTyyl27qT8KtvEysgfcLK2jhp4KBb5+XyJ5/bcKNA64usp6qyuUWja9X4QB8Rx9U/yhZHGpfI96Xa/jem4Q==
   dependencies:
     pkce-challenge "^5.0.0"
 
