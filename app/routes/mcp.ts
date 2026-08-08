@@ -1,8 +1,10 @@
 import { config } from "../settings/siteSettings";
 import type { MicroCMSQueries } from "microcms-js-sdk";
 import { getMicroCMSClient, getPostDetail, getPosts } from "../libs/microcms";
-import { StreamableHTTPTransport } from "@hono/mcp";
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import {
+  McpServer,
+  WebStandardStreamableHTTPServerTransport,
+} from "@modelcontextprotocol/server";
 import { z } from "zod";
 import { Context } from "hono";
 import { HTTPException } from "hono/http-exception";
@@ -29,10 +31,10 @@ export const getMcpServer = async (c: Context<Env>) => {
     "get_posts",
     {
       title: "Get Blog Posts with optional search",
-      inputSchema: {
+      inputSchema: z.object({
         page: z.number().min(1).default(1),
         q: z.string().optional(),
-      },
+      }),
     },
     async (params: { page: number; q?: string } | undefined) => {
       const page = params?.page || 1;
@@ -61,9 +63,9 @@ export const getMcpServer = async (c: Context<Env>) => {
     "get_detail",
     {
       title: "Get Blog Detail",
-      inputSchema: {
+      inputSchema: z.object({
         id: z.string().min(1),
-      },
+      }),
     },
     async (params: { id: string } | undefined) => {
       if (!params?.id) {
@@ -85,7 +87,7 @@ export const getMcpServer = async (c: Context<Env>) => {
     "get_popular_articles",
     {
       title: "Get 10 popular articles",
-      inputSchema: {},
+      inputSchema: z.object({}),
     },
     async () => {
       const result = (await db
@@ -125,9 +127,11 @@ const app = new Hono<Env>();
 
 app.all("/", async (c) => {
   const mcpServer = await getMcpServer(c);
-  const transport = new StreamableHTTPTransport();
+  const transport = new WebStandardStreamableHTTPServerTransport({
+    sessionIdGenerator: undefined,
+  });
   await mcpServer.connect(transport);
-  return transport.handleRequest(c);
+  return transport.handleRequest(c.req.raw);
 });
 
 app.onError((err, c) => {
