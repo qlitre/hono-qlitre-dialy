@@ -13,7 +13,7 @@
     "hono-rate-limiter": "^0.5.3",
     "honox": "^0.1.56",
     "microcms-js-sdk": "^3.4.0",
-    "microcms-rich-editor-handler": "^1.0.2",
+    "microcms-rich-editor-handler": "^1.1.0",
     "shiki": "^4.4.3"
   },
   "devDependencies": {
@@ -21,7 +21,7 @@
     "@hono/vite-build": "^1.11.1",
     "@hono/vite-dev-server": "^0.26.1",
     "knip": "^6.29.0",
-    "prettier": "^3.8.3",
+    "prettier": "^3.9.6",
     "typescript": "6.0.3",
     "vite": "^8.1.2",
     "wrangler": "4"
