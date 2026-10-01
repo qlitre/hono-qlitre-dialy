@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/server": "^2.0.0",
-    "hono": "^4.13.7",
+    "hono": "^4.13.9",
     "hono-rate-limiter": "^0.5.3",
     "honox": "^0.1.61",
     "microcms-js-sdk": "^3.4.0",
