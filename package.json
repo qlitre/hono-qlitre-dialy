@@ -23,7 +23,7 @@
     "knip": "^6.29.0",
     "prettier": "^3.9.9",
     "typescript": "7.0.2",
-    "vite": "^8.1.2",
+    "vite": "^8.3.1",
     "wrangler": "4"
   }
 }
