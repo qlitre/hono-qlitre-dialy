@@ -1638,10 +1638,10 @@ hast-util-whitespace@^3.0.0:
   dependencies:
     "@types/hast" "^3.0.0"
 
-hono-rate-limiter@^0.5.3:
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/hono-rate-limiter/-/hono-rate-limiter-0.5.3.tgz#29ee906b904edd38651f623630342b249d884b34"
-  integrity sha512-M0DxbVMpPELEzLi0AJg1XyBHLGJXz7GySjsPoK+gc5YeeBsdGDGe+2RvVuCAv8ydINiwlbxqYMNxUEyYfRji/A==
+hono-rate-limiter@^0.5.4:
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/hono-rate-limiter/-/hono-rate-limiter-0.5.4.tgz#3753727bff79ce7a76500f9f9b1cfc092839e248"
+  integrity sha512-P3/cscAmz1hA+MuM+Hn9gP/EyO2zWv2aXIFkVYuLZkPzrPa4oaWdVCS94vyDlsNBgeMnE/Hr2+LznIKQxrF0ng==
 
 hono@^4.13.9:
   version "4.13.9"
