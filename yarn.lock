@@ -1643,10 +1643,10 @@ hono-rate-limiter@^0.5.4:
   resolved "https://registry.yarnpkg.com/hono-rate-limiter/-/hono-rate-limiter-0.5.4.tgz#3753727bff79ce7a76500f9f9b1cfc092839e248"
   integrity sha512-P3/cscAmz1hA+MuM+Hn9gP/EyO2zWv2aXIFkVYuLZkPzrPa4oaWdVCS94vyDlsNBgeMnE/Hr2+LznIKQxrF0ng==
 
-hono@^4.13.9:
-  version "4.13.9"
-  resolved "https://registry.yarnpkg.com/hono/-/hono-4.13.9.tgz#682943308ab2f228012460d596a9af58090a1528"
-  integrity sha512-7dMkQmZoC4E6F7AtaQSPhlWAdnBti+j7rreMZl8QB4jFiEhP9TWbGWUMi8WYzBCgmgulxuvLQupKqo+Co6Omyg==
+hono@^4.13.14:
+  version "4.13.14"
+  resolved "https://registry.yarnpkg.com/hono/-/hono-4.13.14.tgz#234489b07bd7bb7b069c9e362f4d39ca85376638"
+  integrity sha512-yhRLQ21U6qa9Hsu2N7Qcbh8tE+WKEcoErjIo56LeSGiGXGp9sA7UpE86Ui9uexb61KakiGwuHMn2QdV7w6i6kQ==
 
 honox@^0.1.61:
   version "0.1.61"
